@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <gxHeader />
+    <gxLoader v-show="isLoaded" />
+    <gxContent v-if="!isLoaded" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import gxHeader from './components/common/header.vue'
+import gxLoader from './components/common/loader.vue'
+import gxContent from './components/sections/gxContent.vue'
+
+import { TweenMax } from 'gsap'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    gxHeader,
+    gxLoader,
+    gxContent
+  },
+  data () {
+    return {
+      isLoaded : false      
+    }
+  },
+  mounted () {
+    this.$scrollmagic.handleScrollTo = function (target) {
+      TweenMax.to(window, 1.5, {
+        scrollTo: {
+        y: target,
+        autoKill: false
+      }
+      })      
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import './scss/settings.scss';
+@import './scss/base.scss';
+
+body {
+  background: black;
 }
+
 </style>

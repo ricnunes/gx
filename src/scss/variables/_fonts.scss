@@ -1,0 +1,17 @@
+// Typefaces
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Tomorrow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+$tomorrow: 'Tomorrow', sans-serif;
+$openSans:  'Open Sans', sans-serif;
+
+// text sizes
+$text-x-large: 3.4rem;
+$text-large: 2.4rem;
+$text-medium: 2rem;
+$text-small: 1.8rem;
+$text-x-small: 1.5rem;
+
+// Global
+$primary-font: $openSans;
+$secondary-font: $tomorrow;
+$primary-font-color: $black;
+$primary-link-color: $red;
