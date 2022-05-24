@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      isLoaded : false      
+      isLoaded : true      
     }
   },
   mounted () {
@@ -44,6 +44,7 @@ export default {
 
 body {
   background: black;
+  scroll-behavior: smooth;
 }
 
 </style>
