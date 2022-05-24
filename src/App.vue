@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <gxHeader />
-    <gxLoader v-show="isLoaded" />
-    <gxContent v-if="!isLoaded" />
+    <gxLoader v-show="!isLoaded" />
+    <gxContent v-if="isLoaded" />
   </div>
 </template>
 

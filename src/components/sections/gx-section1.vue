@@ -1,10 +1,12 @@
 <template>
   <div class="gx-section gx-section--one">
+    <div class="content">
     <h1>Your ultimate data platform.</h1>
     <h3>AI-driven Smart Data Platform turning data into truth.</h3>
     <p>The ontology integrates data from multiple sources into a single ecosystem and provides analytics teams with high quality fuel. The Analytics engine offers insight advantage through early trend detection. The Visualisation layer offers beautifully engineered dashboards with real-time simulation.</p>
     <h3>Let’s see what this thing can do.</h3>
     <button class="btn btn--primary" @click="playVideo()">Watch the video</button>
+    </div>
   </div>
 </template>
 
@@ -32,6 +34,10 @@ export default({
   align-content: center;
   justify-content: center;
   flex-direction: column;
+  .content {
+    width: 50%;
+    margin: 0 auto;
+  }
 
 }
 </style>
