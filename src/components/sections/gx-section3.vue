@@ -1,6 +1,6 @@
 <template>
   <div class="gx-section gx-section--three">
-    <div class="videoAnimation">
+    <div class="videoContainer">
       <div class="content">
         <h2>Early Warning Signals and Trend Detections</h2>
         <p>
@@ -12,7 +12,11 @@
         </p>
         <a class="btn btn--primary" href="#">Find out how</a>
       </div>
-      <img src="../../assets/imgs/gx-tablet.svg" alt="" />
+      <div class="videoAnimation">
+        <video autoplay playsinline loop muted="muted" ref="video">
+          <source src="../../assets/videos/section2.mp4" />
+        </video>
+      </div>
     </div>
   </div>
 </template>
@@ -40,12 +44,24 @@ export default {
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
-  .videoAnimation {
+  .videoContainer {
     display: flex;
     justify-content: flex-end;
     align-content: center;
     position: relative;
     transform: translateX(500px);
+    .videoAnimation {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      position: relative;
+      background: url("../../assets/imgs/gx-tablet.svg") no-repeat transparent
+        center center;
+      padding: 120px 270px;
+      video {
+        max-width: 1070px;
+      }
+    }
     .content {
       height: 100vh;
       display: flex;

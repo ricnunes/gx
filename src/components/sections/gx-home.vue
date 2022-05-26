@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import VideoGb from "../utilities/videoBg.vue";
+import VideoGb from "../utilities/videoBgHome.vue";
 
 export default {
   components: {
@@ -128,6 +128,11 @@ export default {
 
     function elementIsVisible(el) {
       let rect = el.getBoundingClientRect();
+      console.log('current video is : ', el, 'is it gonna play? ', rect.bottom >= 0 &&
+        rect.right >= 0 &&
+        rect.top <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.left <= (window.innerWidth || document.documentElement.clientWidth) )
       return (
         rect.bottom >= 0 &&
         rect.right >= 0 &&

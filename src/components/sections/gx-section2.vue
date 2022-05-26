@@ -2,14 +2,9 @@
   <div class="gx-section gx-section--two">
     <h1>Internal and external data sources connected.</h1>
     <div class="videoAnimation">
-      <div class="animationContainer">
-        <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-        <div class="videoContainer">
-          <!-- <video autoplay playsinline loop muted="muted" ref="video">
-            <source src="../../assets/videos/section1.mp4" />
-          </video> -->
-        </div>
-      </div>
+      <video autoplay playsinline loop muted="muted" ref="video">
+        <source src="../../assets/videos/section1.mp4" />
+      </video>
     </div>
   </div>
 </template>
@@ -42,14 +37,10 @@ export default {
     justify-content: center;
     align-content: center;
     position: relative;
-    .videoContainer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50vw;
-      video {
-        width: 100%;
-      }
+    background: url('../../assets/imgs/gx-tablet.svg') no-repeat transparent center center;
+    padding: 120px 0;
+    video {
+      max-width: 1085px;
     }
   }
 }

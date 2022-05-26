@@ -1,6 +1,6 @@
 <template>
   <div class="gx-section gx-section--four">
-    <div class="videoAnimation">
+    <div class="videoContainer">
       <div class="content">
         <h2>Automated Credit Modelling</h2>
         <p>Tailored digitalization model to forecast client’s financials.</p>
@@ -8,7 +8,11 @@
         <p>Making excel redundant.</p>
         <a class="btn btn--primary" href="#">Find out how</a>
       </div>
-      <img src="../../assets/imgs/gx-tablet.svg" alt="" />
+      <div class="videoAnimation">
+        <video autoplay playsinline loop muted="muted" ref="video">
+          <source src="../../assets/videos/section4.mp4" />
+        </video>
+      </div>
     </div>
   </div>
 </template>
@@ -36,13 +40,25 @@ export default {
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
-  .videoAnimation {
+  .videoContainer {
     display: flex;
     justify-content: flex-start;
     align-content: center;
     position: relative;
     transform: translateX(-500px);
     flex-direction: row-reverse;
+    .videoAnimation {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      position: relative;
+      background: url("../../assets/imgs/gx-tablet.svg") no-repeat transparent
+        center center;
+      padding: 120px 270px;
+      video {
+        max-width: 1070px;
+      }
+    }
     .content {
       height: 100vh;
       display: flex;

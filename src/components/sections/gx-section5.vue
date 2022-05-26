@@ -1,13 +1,17 @@
 <template>
   <div class="gx-section gx-section--five">
-    <div class="videoAnimation">
+    <div class="videoContainer">
       <div class="content">
         <h2>Predictive Analytics with Real Time Simulation</h2>
         <p>It is constantly fine tuning to find what is relevant in the moment, built for you.</p>
         <p>Constantly fine-tuned to find signals relevant in the current moment.</p>
         <a class="btn btn--primary" href="#">Find out how</a>
       </div>
-      <img src="../../assets/imgs/gx-tablet.svg" alt="" />
+      <div class="videoAnimation">
+      <video autoplay playsinline loop muted="muted" ref="video">
+        <source src="../../assets/videos/section1.mp4" />
+      </video>
+    </div>
     </div>
   </div>
 </template>
@@ -35,13 +39,25 @@ export default {
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
-  .videoAnimation {
+  .videoContainer {
     display: flex;
     justify-content: flex-end;
     align-content: center;
     position: relative;
     transform: translateX(500px);
     flex-direction: row;
+    .videoAnimation {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      position: relative;
+      background: url("../../assets/imgs/gx-tablet.svg") no-repeat transparent
+        center center;
+      padding: 120px 270px;
+      video {
+        max-width: 1070px;
+      }
+    }
     .content {
       height: 100vh;
       display: flex;
