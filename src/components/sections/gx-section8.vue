@@ -92,12 +92,6 @@ export default {
     .slick-slider {
       margin-bottom: 20rem;
     }
-    .slick-slide {
-      margin-left: 20px;
-    }
-    .slick-list {
-      margin-left: -20px;
-    }
   }
 }
 </style>
