@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <gxHeader />
+    <!-- <gxHeader /> -->
     <gxLoader v-show="!isLoaded" />
     <gxContent v-if="isLoaded" />
   </div>
 </template>
 
 <script>
-import gxHeader from './components/common/header.vue'
+// import gxHeader from './components/common/header.vue'
 import gxLoader from './components/common/loader.vue'
 import gxContent from './components/sections/gxContent.vue'
 
@@ -16,7 +16,7 @@ import { TweenMax } from 'gsap'
 export default {
   name: 'App',
   components: {
-    gxHeader,
+    // gxHeader,
     gxLoader,
     gxContent
   },

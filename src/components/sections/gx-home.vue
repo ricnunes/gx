@@ -104,20 +104,14 @@ export default {
   },
   methods: {
     skipAnimation() {
-      window.scrollBy(0, window.innerHeight);
+      const sectionOne = document.getElementsByClassName('gx-section--one')[0];
+      sectionOne.scrollIntoView({
+        behavior: 'smooth'
+      });
     },
   },
   mounted() {
-    setTimeout(() => {
-      const gxLogo = document.querySelectorAll(".gx-logo")[0];
-      const homeVideo = document.querySelectorAll('video')[0];
-      if (elementIsVisible(gxLogo)) {
-        homeVideo.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    }, 5000);
-
+    
     function playVideoWhenVisible() {
       document
         .querySelectorAll("video")
@@ -128,11 +122,6 @@ export default {
 
     function elementIsVisible(el) {
       let rect = el.getBoundingClientRect();
-      console.log('current video is : ', el, 'is it gonna play? ', rect.bottom >= 0 &&
-        rect.right >= 0 &&
-        rect.top <=
-          (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.left <= (window.innerWidth || document.documentElement.clientWidth) )
       return (
         rect.bottom >= 0 &&
         rect.right >= 0 &&
@@ -172,12 +161,30 @@ export default {
   display: flex;
   justify-content: center;
   align-content: center;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  animation: goTransparent 1s forwards;
+  animation-delay: 2s;
+  pointer-events: none;
   svg {
     width: 50vh;
   }
   #eSGJivPWXx42 {
     animation: eSGJivPWXx42_c_o 2.5ms linear 1 normal forwards;
   }
+  @keyframes goTransparent {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  
   @keyframes eSGJivPWXx42_c_o {
     0% {
       opacity: 0;

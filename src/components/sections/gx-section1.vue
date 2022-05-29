@@ -2,10 +2,10 @@
   <div class="gx-section gx-section--one">
     <div class="content">
     <h1>Your ultimate data platform.</h1>
-    <h3>AI-driven Smart Data Platform turning data into truth.</h3>
-    <p>The ontology integrates data from multiple sources into a single ecosystem and provides analytics teams with high quality fuel. The Analytics engine offers insight advantage through early trend detection. The Visualisation layer offers beautifully engineered dashboards with real-time simulation.</p>
-    <h3>Let’s see what this thing can do.</h3>
-    <button class="btn btn--primary" @click="playVideo()">Watch the video</button>
+    <h4>AI-driven Smart Data Platform turning data into truth.</h4>
+    <h5>The ontology integrates data from multiple sources into a single ecosystem and provides analytics teams with high quality fuel. The Analytics engine offers insight advantage through early trend detection. The Visualisation layer offers beautifully engineered dashboards with real-time simulation.</h5>
+    <h5>Let’s see what this thing can do.</h5>
+    <button class="btn btn--primary btn--primary--darkB" @click="playVideo()">Watch the video</button>
     </div>
   </div>
 </template>
@@ -35,8 +35,26 @@ export default({
   justify-content: center;
   flex-direction: column;
   .content {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
+    h1 {
+      margin-bottom: 7.3rem;
+    }
+    h4 {
+      margin-bottom: 5rem;
+    }
+    h5 {
+      margin-bottom: 2.5rem;
+      max-width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    button {
+      margin-top: 7.5rem
+    }
   }
 
 }

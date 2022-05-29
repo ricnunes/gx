@@ -1,0 +1,74 @@
+.btn {
+  padding: 13px 40px 15px;
+  border-radius: 100px;
+  font-size: 2rem;
+  line-height: 3rem;
+  text-align: center;
+  font-weight: 400;
+  transition: all .2s;
+  display: inline-flex;
+
+  &--primary {
+    &--lightB {
+      background-color: $black;
+      color: white;
+      &:hover {
+        background: $blue;
+        box-shadow:  0px 15px 30px rgba(0, 109, 216, 0.2);
+        transition: all .2s;
+      }
+    }
+    &--darkB {
+      background-color: #fff;
+      color: $black;
+      &:hover {
+        background: $blue;
+        box-shadow:  0px 15px 60px rgba(0, 109, 216, 0.8);
+        transition: all .2s;
+      }
+    }    
+  }
+  &--secondary {
+    background-color: transparent;
+    &--lightB {
+      color: black;
+      border: 2px solid black;
+      &:hover {
+        border: 2px solid $blue;
+        box-shadow:  0px 15px 30px rgba(0, 109, 216, 0.2);
+        transition: all .2s;
+      }
+    }
+    &--darkB {
+      border: 2px solid white;
+      color: white;
+      &:hover {
+        border: white;
+        background: linear-gradient(180deg, #006DD8 0%, rgba(0, 0, 0, 0) 100%);
+        filter: drop-shadow(0px 15px 60px rgba(0, 109, 216, 0.8));
+        transition: all .2s;
+      }
+    }    
+  }
+}
+
+.link {
+  display: inline-flex;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.8px;
+  padding: 5px 10px;
+  background:  linear-gradient(182.35deg, rgba(255, 255, 255, 0) 112.94%, #006DD8 126.56%);
+  &--lightB {
+    color: black;
+    &:hover {
+      background: linear-gradient(182.35deg, rgba(255, 255, 255, 0) 1.97%, #006DD8 126.56%);
+    }
+  }
+  &--darkB {
+    color: white;
+    &:hover {
+      background: linear-gradient(179.55deg, rgba(0, 0, 0, 0) 0.39%, #006DD8 102.18%);
+    }
+  }
+}

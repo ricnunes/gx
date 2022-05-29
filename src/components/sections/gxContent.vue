@@ -7,6 +7,8 @@
     <gxSectionFour />
     <gxSectionFive />
     <gxSectionSix />
+    <gxSectionSeven />
+    <gxSectionHeight />
   </div>
 </template>
 
@@ -18,6 +20,8 @@ import gxSectionThree from './gx-section3.vue';
 import gxSectionFour from './gx-section4.vue';
 import gxSectionFive from './gx-section5.vue';
 import gxSectionSix from './gx-section6.vue';
+import gxSectionSeven from './gx-section7.vue';
+import gxSectionHeight from './gx-section8.vue';
 
 export default({
   components: {
@@ -28,6 +32,8 @@ export default({
     gxSectionFour,
     gxSectionFive,
     gxSectionSix,
+    gxSectionSeven,
+    gxSectionHeight
   },
 })
 </script>

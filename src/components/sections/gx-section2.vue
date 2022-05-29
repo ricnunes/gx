@@ -1,6 +1,6 @@
 <template>
   <div class="gx-section gx-section--two">
-    <h1>Internal and external data sources connected.</h1>
+    <h3>Internal and external data sources connected.</h3>
     <div class="videoAnimation">
       <video autoplay playsinline loop muted="muted" ref="video">
         <source src="../../assets/videos/section1.mp4" />

@@ -2,15 +2,17 @@
   <div class="gx-section gx-section--three">
     <div class="videoContainer">
       <div class="content">
-        <h2>Early Warning Signals and Trend Detections</h2>
-        <p>
-          Analytics delivering signal not noise with sources that work in the
-          future not just the past.
-        </p>
-        <p>
-          Constantly fine-tuned to find signals relevant in the current moment.
-        </p>
-        <a class="btn btn--primary" href="#">Find out how</a>
+        <div class="container">
+          <h3>Early Warning Signals and Trend Detections</h3>
+          <h5>
+            Analytics delivering signal not noise with sources that work in the
+            future not just the past.
+          </h5>
+          <h5>
+            Constantly fine-tuned to find signals relevant in the current moment.
+          </h5>
+          <a class="btn btn--primary btn--primary--darkB" href="#">Find out how</a>
+        </div>
       </div>
       <div class="videoAnimation">
         <video autoplay playsinline loop muted="muted" ref="video">
@@ -68,6 +70,19 @@ export default {
       flex-direction: column;
       align-content: center;
       justify-content: center;
+      width: 350px;
+      h3 {
+        margin-bottom: 5rem;
+      }
+      h5 {
+        margin-bottom: 3rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .btn {
+        margin-top: 5rem;
+      }
     }
   }
 }
