@@ -90,7 +90,7 @@
       </svg>
     </div>
     <VideoGb>
-      <div class="skip" @click="skipAnimation()">Skip Animation</div>
+      <h6 class="skip" @click="skipAnimation()">Skip Animation</h6>
     </VideoGb>
   </div>
 </template>
@@ -147,13 +147,20 @@ export default {
 <style lang="scss">
 .skip {
   position: absolute;
-  right: 100px;
+  left: 0;
+  right: 0;
   bottom: 20vh;
   color: $white;
   text-transform: uppercase;
   cursor: pointer;
+  text-align: center;
   &:hover {
     text-decoration: underline;
+  }
+  @include breakpoint(760px) {
+    right: 100px;
+    left: auto;
+    text-align: left;
   }
 }
 .gx-logo {

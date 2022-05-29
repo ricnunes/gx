@@ -25,7 +25,6 @@ export default({
 
 .gx-section--one {
   text-align: center;
-  height: 100vh;
   background: radial-gradient(at -8% 100%, rgba(3, 77, 185, 0.4) 5px, transparent 70%);
   background-repeat: no-repeat;
   background-position: bottom left;
@@ -35,8 +34,11 @@ export default({
   justify-content: center;
   flex-direction: column;
   .content {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
+    @include breakpoint($medium) {
+      width: 70%;
+    }
     h1 {
       margin-bottom: 7.3rem;
     }

@@ -64,8 +64,6 @@
         } else {
           height = this.$el.offsetHeight
         }
-        console.log('video width home: ', this.$refs.video.style.width);
-        console.log('video width 2 home: ', width);
         this.$refs.video.style.width = width ? `${width}px` : 'auto'
         this.$refs.video.style.height = height ? `${height}px` : 'auto'
       }

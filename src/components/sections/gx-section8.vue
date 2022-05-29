@@ -65,6 +65,7 @@ export default {
 
 <style lang="scss">
 .gx-section--height {
+  min-height: auto;
   background-repeat: no-repeat;
   background-position: bottom left;
   color: $white;

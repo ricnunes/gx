@@ -38,7 +38,6 @@ export default {
 
 <style lang="scss">
 .gx-section--seven {
-  height: 100vh;
   background-repeat: no-repeat;
   background-position: bottom left;
   color: $white;

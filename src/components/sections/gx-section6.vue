@@ -1,6 +1,6 @@
 <template>
   <div class="gx-section gx-section--six VideoBg">
-    <video autoplay playsinline loop :muted="muted" ref="video">
+    <video autoplay playsinline :muted="muted" ref="video">
       <source src="../../assets/videos/section6.mp4" />
     </video>
     <div class="VideoBg__content">
@@ -66,8 +66,6 @@ export default {
       } else {
         height = this.$el.offsetHeight;
       }
-      console.log("video width home: ", this.$refs.video.style.width);
-      console.log("video width 2 home: ", width);
       this.$refs.video.style.width = width ? `${width}px` : "auto";
       this.$refs.video.style.height = height ? `${height}px` : "auto";
     },
@@ -78,7 +76,6 @@ export default {
 
 <style lang="scss">
 .gx-section--six {
-  height: 100vh;
   background: $black;
   background-repeat: no-repeat;
   background-position: bottom left;

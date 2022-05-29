@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="videoAnimation">
-        <video autoplay playsinline loop muted="muted" ref="video">
+        <video autoplay playsinline muted="muted" ref="video">
           <source src="../../assets/videos/section4.mp4" />
         </video>
       </div>
@@ -62,7 +62,6 @@ export default {
       }
     }
     .content {
-      height: 100vh;
       display: flex;
       flex-direction: column;
       align-content: center;
