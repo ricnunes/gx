@@ -49,11 +49,11 @@ h4 {
 
 h5 {
   font-family: $primary-font;
-  font-size: 2.4rem;
-  line-height: 3.4rem;
+  font-size: 2rem;
+  line-height: 3rem;
   @include breakpoint($medium) {
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
   }
 }
 

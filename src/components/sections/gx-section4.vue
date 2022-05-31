@@ -11,6 +11,7 @@
         </div>
       </div>
       <div class="videoAnimation">
+        <img src="../../assets/imgs/gx-tablet.svg" alt="" />
         <video autoplay playsinline muted="muted" ref="video">
           <source src="../../assets/videos/section4.mp4" />
         </video>
@@ -32,7 +33,6 @@ export default {
 
 <style lang="scss">
 .gx-section--four {
-  height: 100vh;
   background: $black;
   background-repeat: no-repeat;
   background-position: bottom left;
@@ -41,7 +41,8 @@ export default {
   align-content: center;
   justify-content: center;
   flex-direction: row;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   .videoContainer {
     display: flex;
     justify-content: flex-start;
@@ -54,11 +55,28 @@ export default {
       justify-content: center;
       align-content: center;
       position: relative;
-      background: url("../../assets/imgs/gx-tablet.svg") no-repeat transparent
-        center center;
-      padding: 120px 270px;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: 55%;
+        box-shadow: 0px 0px 79px 29px rgba(0, 109, 216, 0.5);
+        border-radius: 37px;
+      }
       video {
-        max-width: 1070px;
+        width: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
       }
     }
     .content {

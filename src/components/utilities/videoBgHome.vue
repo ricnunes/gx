@@ -1,6 +1,6 @@
 <template>
   <section class="VideoBg">
-    <video autoplay playsinline loop :muted="muted" ref="video">
+    <video autoplay playsinline :muted="muted" ref="video">
       <source src="../../assets/videos/home.mp4">
     </video>
     <div class="VideoBg__content">

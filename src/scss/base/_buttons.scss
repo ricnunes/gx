@@ -22,6 +22,7 @@
       background-color: #fff;
       color: $black;
       &:hover {
+        color: $white;
         background: $blue;
         box-shadow:  0px 15px 60px rgba(0, 109, 216, 0.8);
         transition: all .2s;
@@ -35,6 +36,7 @@
       border: 2px solid black;
       &:hover {
         border: 2px solid $blue;
+        color: $blue;
         box-shadow:  0px 15px 30px rgba(0, 109, 216, 0.2);
         transition: all .2s;
       }
@@ -59,16 +61,19 @@
   letter-spacing: 0.8px;
   padding: 5px 10px;
   background:  linear-gradient(182.35deg, rgba(255, 255, 255, 0) 112.94%, #006DD8 126.56%);
+  transition: all 0.2s;
   &--lightB {
     color: black;
     &:hover {
       background: linear-gradient(182.35deg, rgba(255, 255, 255, 0) 1.97%, #006DD8 126.56%);
+      transition: all 0.2s;
     }
   }
   &--darkB {
     color: white;
     &:hover {
       background: linear-gradient(179.55deg, rgba(0, 0, 0, 0) 0.39%, #006DD8 102.18%);
+      transition: all 0.2s;
     }
   }
 }

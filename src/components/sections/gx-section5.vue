@@ -4,16 +4,25 @@
       <div class="content">
         <div class="container">
           <h3>Predictive Analytics with Real Time Simulation</h3>
-          <h5>It is constantly fine tuning to find what is relevant in the moment, built for you.</h5>
-          <h5>Constantly fine-tuned to find signals relevant in the current moment.</h5>
-          <a class="btn btn--primary btn--primary--darkB" href="#">Find out how</a>
+          <h5>
+            It is constantly fine tuning to find what is relevant in the moment,
+            built for you.
+          </h5>
+          <h5>
+            Constantly fine-tuned to find signals relevant in the current
+            moment.
+          </h5>
+          <a class="btn btn--primary btn--primary--darkB" href="#"
+            >Find out how</a
+          >
         </div>
       </div>
       <div class="videoAnimation">
-      <video autoplay playsinline muted="muted" ref="video">
-        <source src="../../assets/videos/section1.mp4" />
-      </video>
-    </div>
+        <img src="../../assets/imgs/gx-tablet.svg" alt="" />
+        <video autoplay playsinline muted="muted" ref="video">
+          <source src="../../assets/videos/section1.mp4" />
+        </video>
+      </div>
     </div>
   </div>
 </template>
@@ -52,12 +61,31 @@ export default {
       display: flex;
       justify-content: center;
       align-content: center;
-      position: relative;
-      background: url("../../assets/imgs/gx-tablet.svg") no-repeat transparent
-        center center;
-      padding: 120px 270px;
+      width: 80vw;
+      height: 59vh;
+      overflow: visible;
+      background-size: 100%;
+      margin: auto;
+      max-width: 80vw;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: 55%;
+        box-shadow: 0px 0px 79px 29px rgba(0, 109, 216, 0.5);
+        border-radius: 37px;
+      }
       video {
-        max-width: 1070px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0;
+        margin: auto;
+        width: 50%;
       }
     }
     .content {

@@ -89,29 +89,79 @@
         />
       </svg>
     </div>
-    <VideoGb>
-      <h6 class="skip" @click="skipAnimation()">Skip Animation</h6>
-    </VideoGb>
+    <transition>
+      <div v-if="isVideoPlaying">
+        <VideoGb>
+          <h6 class="skip link link--darkB" @click="skipAnimation()">
+            Skip Animation
+          </h6>
+        </VideoGb>
+      </div>
+    </transition>
+    <transition>
+      <div class="gx-section gx-section--one" v-show="!isVideoPLaying">
+        <div class="content">
+          <h1 id="scramble"></h1>
+          <h4>AI-driven Smart Data Platform turning data into truth.</h4>
+          <h5>
+            The ontology integrates data from multiple sources into a single
+            ecosystem and provides analytics teams with high quality fuel. The
+            Analytics engine offers insight advantage through early trend
+            detection. The Visualisation layer offers beautifully engineered
+            dashboards with real-time simulation.
+          </h5>
+          <h5>Let’s see what this thing can do.</h5>
+          <button
+            class="btn btn--primary btn--primary--darkB"
+            @click="playVideo()"
+          >
+            Watch the video
+          </button>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import VideoGb from "../utilities/videoBgHome.vue";
+import { gsap } from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 export default {
   components: {
     VideoGb,
   },
+  data() {
+    return {
+      isVideoPlaying: true,
+    };
+  },
   methods: {
     skipAnimation() {
-      const sectionOne = document.getElementsByClassName('gx-section--one')[0];
-      sectionOne.scrollIntoView({
-        behavior: 'smooth'
+      this.isVideoPlaying = !this.isVideoPlaying;
+    },
+    scrambleText() {
+      let tl = gsap.timeline({ defaults: { duration: 2, ease: "none" } });
+      tl.to("#scramble", {
+        duration: 2,
+        scrambleText: {
+          text: "Your ultimate data platform.",
+          chars: "lowerCase",
+          revealDelay: 0.5,
+          tweenLength: false,
+        },
       });
     },
   },
   mounted() {
+    gsap.registerPlugin(ScrambleTextPlugin);
     
+    let video = this.$children[0].$refs.video;
+    video.addEventListener("ended", () => {
+      this.isVideoPlaying = !this.isVideoPlaying;
+    });
+
     function playVideoWhenVisible() {
       document
         .querySelectorAll("video")
@@ -141,6 +191,11 @@ export default {
     window.addEventListener("resize", playVideoWhenVisible);
     window.addEventListener("DOMContentLoaded", playVideoWhenVisible);
   },
+  watch: {
+    isVideoPlaying() {
+      this.scrambleText();
+    }
+  }
 };
 </script>
 
@@ -151,12 +206,8 @@ export default {
   right: 0;
   bottom: 20vh;
   color: $white;
-  text-transform: uppercase;
   cursor: pointer;
   text-align: center;
-  &:hover {
-    text-decoration: underline;
-  }
   @include breakpoint(760px) {
     right: 100px;
     left: auto;
@@ -190,8 +241,7 @@ export default {
       opacity: 0;
     }
   }
-  
-  
+
   @keyframes eSGJivPWXx42_c_o {
     0% {
       opacity: 0;
@@ -288,5 +338,56 @@ export default {
       opacity: 1;
     }
   }
+}
+
+.gx-section--one {
+  text-align: center;
+  background: radial-gradient(
+    at -8% 100%,
+    rgba(3, 77, 185, 0.4) 5px,
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  color: $white;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  .content {
+    width: 100%;
+    margin: 0 auto;
+    @include breakpoint($medium) {
+      width: 70%;
+    }
+    h1 {
+      margin-bottom: 7.3rem;
+    }
+    h4 {
+      margin-bottom: 5rem;
+    }
+    h5 {
+      margin-bottom: 2.5rem;
+      max-width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    button {
+      margin-top: 7.5rem;
+    }
+  }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

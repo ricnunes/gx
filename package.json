@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "gsap": "npm:@gsap/simply@^3.10.4",
     "vue": "^2.6.14",
     "vue-scrollmagic": "^1.2.0",
     "vue-slick-carousel": "^1.0.6"
