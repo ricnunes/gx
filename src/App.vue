@@ -47,4 +47,8 @@ body {
   scroll-behavior: smooth;
 }
 
+.scrollLocked {
+  overflow: hidden;
+}
+
 </style>
