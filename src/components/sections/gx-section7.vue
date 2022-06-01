@@ -24,6 +24,12 @@ export default {
   },
   data() {
     return {
+      cells: [
+        {
+          title: '',
+          description: ''
+        }
+      ]
       
     };
   },
