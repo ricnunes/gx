@@ -1,7 +1,7 @@
 <template>
   <div class="gx-loader">
     <lottie-vue-player 
-    :src="`/static/assets/imgs/lf30_dlviouvg.json`" 
+    :src="`${publicPath}/static/assets/imgs/lf30_dlviouvg.json`" 
     :backgroundColor="options.backgroundColor" 
     loop autoplay
     style="width: 110px; height: 100vh;"></lottie-vue-player>
@@ -17,6 +17,7 @@ export default {
       options: {
         backgroundColor: '#000',
       },
+      publicPath: process.env.NODE_ENV
     }
     
   }

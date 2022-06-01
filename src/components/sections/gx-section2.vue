@@ -1,8 +1,12 @@
 <template>
   <div class="gx-section gx-section--two">
     <h3>Internal and external data sources connected.</h3>
+    <h3>Internal and external data sources connected.</h3>
     <div class="videoAnimation">
       <img src="../../assets/imgs/gx-tablet.svg" alt="">
+      <video autoplay playsinline muted="muted" ref="video">
+        <source src="../../assets/videos/section1.mp4" />
+      </video>
       <video autoplay playsinline muted="muted" ref="video">
         <source src="../../assets/videos/section1.mp4" />
       </video>

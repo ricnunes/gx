@@ -23,11 +23,12 @@ export default {
   },
   data () {
     return {
-      isLoaded : false      
+      isLoaded : false,
+      publicPath: process.env.NODE_ENV   
     }
   },
   mounted () {
-    this.axios.get('/static/assets/videos/home.mp4').then(() => {
+    this.axios.get('${publicPath}/static/assets/videos/home.mp4').then(() => {
       this.isLoaded = true
     })
     Axios({
