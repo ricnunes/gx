@@ -24,11 +24,11 @@ export default {
   data () {
     return {
       isLoaded : false,
-      publicPath: process.env.NODE_ENV   
+      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : ""
     }
   },
   mounted () {
-    this.axios.get('${publicPath}/static/assets/videos/home.mp4').then(() => {
+    this.axios.get(this.publicPath + '/static/assets/videos/home.mp4').then(() => {
       this.isLoaded = true
     })
     Axios({

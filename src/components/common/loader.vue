@@ -17,7 +17,7 @@ export default {
       options: {
         backgroundColor: '#000',
       },
-      publicPath: process.env.NODE_ENV
+      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : ""
     }
     
   }
