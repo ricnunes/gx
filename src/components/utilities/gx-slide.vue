@@ -10,6 +10,9 @@
         <a :href="link" class="link link--darkB">Read More</a>
       </div>
     </div>
+    <div class="image">
+      <img :src="`${publicPath}/static/assets/imgs/${source}`" alt="">
+    </div>
   </section>
 </template>
 
@@ -32,22 +35,54 @@ export default {
       type: String,
       required: true,
     },
+    source: {
+      type: String,
+      required: true
+    }
   },
   data() {
-    return {};
+    return {
+      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : ""
+    };
   },
 };
 </script>
 
 <style lang="scss">
 .slide-container {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  overflow: hidden;
   padding: 0 10px;
+  &:hover {
+    .image {
+      img {
+        transform: scale(1.2);
+        transition: transform 0.2s ease;
+      }
+    }
+  }
 }
+.image {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 0.2s ease;
+    }
+  }
 .slide {
-  background: url("../../assets/imgs/social-image.jpg") no-repeat center center
-    transparent;
-  background-size: cover;
-  padding: 50px;
+  padding: 20px;
+  transition: all 0.5s ease;
+  position: relative; 
+  z-index: 2;
   .header {
     display: flex;
     flex-direction: row;

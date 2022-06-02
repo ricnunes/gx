@@ -1,1 +1,36 @@
 @import 'fade';
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.slide-in-leave-active,
+.slide-in-enter-active {
+  transition: 0.5s;
+  transition-delay: 1s;
+}
+
+.slide-out-leave-active,
+.slide-out-enter-active {
+  transition: 0.5s;
+}
+
+.slide-in-enter {
+  transform: translate(100%, 0);
+}
+.slide-in-leave-to {
+  transform: translate(-100%, 0);
+}
+
+.slide-out-enter {
+  transform: translate(-100%, 0);
+}
+.slide-out-leave-to {
+  transform: translate(100%, 0);
+}

@@ -1,23 +1,28 @@
 <template>
   <div class="gx-section gx-section--seven">
-    <div class="title">
+    <div class="title" v-observe-visibility="visibilityChanged">
       <h3>Disrupting the Financial Services Industry</h3>
     </div>
-    <div class="grid-container">
-      <gxCell :title="`x10`" :description="`Predictive power in generating risk insights and signals`" />
-      <gxCell :title="`100%`" :description="`Data accuracy guaranteed across structured and unstructured sources`" />
-      <gxCell :title="`90%`" :description="`Automation in engineering of unstructured data `" :subTitle="`Up to`" />
-      <gxCell :title="`100%`" :description="`GX DataFactory with human-in-the-loop engineering data employing reusable tools & repeatable processes`" :postTitle="`algorithmic`" />
-      <gxCell :title="`100%`" :description="`Enterprise data model ontology for internal & external data. All Data in One Model. One Model for All Data.`" :postTitle="`connected`" />
-      <gxCell :title="`95%`" :description="`Accuracy of financial spreading analysis from classifiers`" />
-      <gxCell :title="`~ 50%`" :description="`Reduction in data transformation timeline`" />
-      <gxCell :title="`60%`" :description="`Data available at sector and sub-segment level for analysis`" :postTitle="`more`" />
-    </div>
+    <TransitionGroup class="grid-container" tag="div">
+      <gxCell
+        transition="fade"
+        v-for="(cell, index) in cells"
+        :key="index"
+        :symbolBefore="cell.symbolBefore"
+        :title="cell.title"
+        :symbolAfter="cell.symbolAfter"
+        :description="cell.description"
+        :postTitle="cell.postTitle"
+        :subTitle="cell.subTitle"
+      />
+    </TransitionGroup>
   </div>
 </template>
 
 <script>
-import gxCell from '../utilities/gx-cell.vue'
+import gsap from 'gsap'
+
+import gxCell from "../utilities/gx-cell.vue";
 export default {
   components: {
     gxCell,
@@ -26,19 +31,149 @@ export default {
     return {
       cells: [
         {
-          title: '',
-          description: ''
-        }
-      ]
-      
+          title: "10",
+          symbolBefore: "x",
+          symbolAfter: null,
+          description:
+            "Predictive power in generating risk insights and signals",
+          subTitle: null,
+          postTitle: null,
+        },
+        {
+          title: "100",
+          symbolBefore: null,
+          symbolAfter: "%",
+          description:
+            "Data accuracy guaranteed across structured and unstructured sources",
+          subTitle: "Up to",
+          postTitle: null,
+        },
+        {
+          title: "90",
+          symbolBefore: null,
+          symbolAfter: "%",
+          description: "Automation in engineering of unstructured data",
+          subTitle: null,
+          postTitle: null,
+        },
+        {
+          title: "100",
+          symbolBefore: null,
+          symbolAfter: "%",
+          description:
+            "GX DataFactory with human-in-the-loop engineering data employing reusable tools & repeatable processes",
+          subTitle: null,
+          postTitle: "algorithmic",
+        },
+        {
+          title: "100",
+          symbolBefore: null,
+          symbolAfter: "%",
+          description:
+            "Enterprise data model ontology for internal & external data. All Data in One Model. One Model for All Data.",
+          subTitle: null,
+          postTitle: "connected",
+        },
+        {
+          title: "95",
+          symbolBefore: null,
+          symbolAfter: "%",
+          description:
+            "Accuracy of financial spreading analysis from classifiers",
+          subTitle: null,
+          postTitle: null,
+        },
+        {
+          title: "50",
+          symbolBefore: "~ ",
+          symbolAfter: "%",
+          description: "Reduction in data transformation timeline",
+          subTitle: null,
+          postTitle: null,
+        },
+        {
+          title: "60",
+          symbolBefore: null,
+          symbolAfter: "%",
+          description:
+            "Data available at sector and sub-segment level for analysis",
+          subTitle: null,
+          postTitle: "more",
+        },
+      ],
+      isVisible: false,
     };
   },
-  mounted() {
-
-  },
+  mounted() {},
   methods: {
-  }
-}
+    visibilityChanged(isVisible) {
+      this.isVisible = isVisible;
+      const cells = document.getElementsByClassName('cell')
+      if (this.isVisible) {
+        this.onEnter(cells);
+      } else {
+        this.onLeave(cells);
+      }
+    },
+    onEnter(items) {
+      items.forEach((item, index) =>  {
+        let target = {val: 0};
+        // eslint-disable-next-line
+        let number = item.querySelectorAll('h1 .number');
+        let content = item.querySelectorAll('p');
+        gsap.to(item, {
+          duration: 0.2,
+          opacity: 1,
+          scale: 1,
+          delay: index * .15
+        })
+        gsap.to(content, {
+          duration: 0.3,
+          opacity: 1,
+          scale: 1,
+          delay: index * .25
+        })     
+        gsap.to(target, {
+          val: this.cells[index].title,
+          duration: 2,
+          onUpdate: function() {
+            number[0].innerHTML = target.val.toFixed(0);
+          },
+          delay: index * .15,
+        })
+      }
+      )
+    },
+    onLeave(items) {
+      items.forEach((item, index) =>  {
+        // eslint-disable-next-line
+        let number = item.querySelectorAll('h1 .number');
+        let target = {val: number[0].innerText};
+        let content = item.querySelectorAll('p');
+        gsap.to(item, {
+          duration: 0.2,
+          opacity: 0,
+          scale: 0,
+          delay: index * .15
+        })
+        gsap.to(content, {
+          duration: 0.2,
+          opacity: 0,
+          scale: 0,
+          delay: index * .15
+        })
+        gsap.to(target, {
+          val: 0,
+          duration: 2,
+          delay: index * .15,
+          onUpdate: function() {
+            number[0].innerHTML = target.val.toFixed(1);
+          }
+        })
+      })
+    }
+  },
+};
 </script>
 
 
@@ -49,7 +184,11 @@ export default {
   color: $white;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(circle at 50% 50%, #006DD8 0.87%, rgba(0, 0, 0, 0) 60%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    #006dd8 0.87%,
+    rgba(0, 0, 0, 0) 60%
+  );
   .title {
     width: 100%;
     max-width: 1240px;
@@ -80,7 +219,6 @@ export default {
       }
     }
   }
-
 }
 </style>
  

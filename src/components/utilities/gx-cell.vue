@@ -2,7 +2,7 @@
   <section class="cell">
     <div class="title">
       <h1>
-        <span>{{ subTitle }} </span>{{ title }}<span> {{ postTitle }}</span>
+        <span>{{ subTitle }} </span>{{symbolBefore}}<span class="number">{{ title }}</span>{{symbolAfter}}<span> {{ postTitle }}</span>
       </h1>
     </div>
     <div class="content">
@@ -17,6 +17,12 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    symbolBefore: {
+      type: String
+    },
+    symbolAfter: {
+      type: String
     },
     subTitle: {
       type: String,
@@ -47,7 +53,7 @@ export default {
   .title {
     color: $blue;
     margin-bottom: 3rem;
-    span {
+    span:not(.number) {
         font-size: 2.8rem;
         line-height: 3.8rem;
       }

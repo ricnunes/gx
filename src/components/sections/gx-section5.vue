@@ -1,8 +1,8 @@
 <template>
   <div class="gx-section gx-section--five">
-    <div class="videoContainer">
-      <div class="content">
-        <div class="container">
+    <div class="videoContainer" :class="{ isVisible: isVisible}">
+      <div class="content" :class="{ isVisible: isVisible}">
+        <div class="container" v-observe-visibility="visibilityChanged">
           <h3>Predictive Analytics with Real Time Simulation</h3>
           <h5>
             It is constantly fine tuning to find what is relevant in the moment,
@@ -29,10 +29,15 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isVisible: false
+    }
+  },
   methods: {
-    playVideo() {
-      // play video
-    },
+   visibilityChanged (isVisible) {
+      this.isVisible = isVisible
+   }
   },
 };
 </script>
@@ -55,8 +60,13 @@ export default {
     justify-content: flex-end;
     align-content: center;
     position: relative;
-    transform: translateX(500px);
     flex-direction: row;
+    transform: translateX(1500px);
+    transition: transform 0.5s;
+    &.isVisible {
+      transition: transform 0.5s;
+      transform: translateX(500px);
+    }
     .videoAnimation {
       display: flex;
       justify-content: center;
@@ -94,6 +104,14 @@ export default {
       align-content: center;
       justify-content: center;
       width: 350px;
+      opacity: 0;
+      transition: all 1s ease;
+      transform: scale(0);
+      &.isVisible {
+        transition: all 1s ease;
+        opacity: 1;
+        transform: scale(1);
+      }
       h3 {
         margin-bottom: 5rem;
       }

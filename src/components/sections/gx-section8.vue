@@ -8,24 +8,28 @@
           :date="`4 June 2022`"
           :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
           :link="`#`"
+          :source="`social-image.jpg`"
         />
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
           :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
           :link="`#`"
+          :source="`social-image.jpg`"
         />
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
           :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
           :link="`#`"
+          :source="`social-image.jpg`"
         />
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
           :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
           :link="`#`"
+          :source="`social-image.jpg`"
         />
       </VueSlickCarousel>
     </div>

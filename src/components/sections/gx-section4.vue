@@ -1,8 +1,8 @@
 <template>
   <div class="gx-section gx-section--four">
-    <div class="videoContainer">
-      <div class="content">
-        <div class="contai">
+    <div class="videoContainer" :class="{ isVisible: isVisible}">
+      <div class="content" :class="{ isVisible: isVisible}">
+        <div class="container"  v-observe-visibility="visibilityChanged">
           <h3>Automated Credit Modelling</h3>
           <h5>Tailored digitalization model to forecast client’s financials.</h5>
           <h5>Peer benchmarking.</h5>
@@ -22,10 +22,15 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isVisible: false
+    }
+  },
   methods: {
-    playVideo() {
-      // play video
-    },
+   visibilityChanged (isVisible) {
+      this.isVisible = isVisible
+   }
   },
 };
 </script>
@@ -48,8 +53,13 @@ export default {
     justify-content: flex-start;
     align-content: center;
     position: relative;
-    transform: translateX(-500px);
+    transform: translateX(-1500px);
     flex-direction: row-reverse;
+    transition: transform 0.5s;
+    &.isVisible {
+      transition: transform 0.5s;
+      transform: translateX(-500px);
+    }
     .videoAnimation {
       display: flex;
       justify-content: center;
@@ -85,6 +95,14 @@ export default {
       align-content: center;
       justify-content: center;
       width: 350px;
+      opacity: 0;
+      transition: all 1s ease;
+      transform: scale(0);
+      &.isVisible {
+        transition: all 1s ease;
+        opacity: 1;
+        transform: scale(1);
+      }
       h3 {
         margin-bottom: 5rem;
       }
