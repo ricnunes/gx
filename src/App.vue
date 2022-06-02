@@ -3,6 +3,7 @@
     <gxHeader />
     <gxLoader v-show="!isLoaded" />
     <gxContent v-if="isLoaded" />
+    <gxFooter />
   </div>
 </template>
 
@@ -11,15 +12,15 @@ import Axios from 'axios'
 import gxHeader from './components/common/header.vue'
 import gxLoader from './components/common/loader.vue'
 import gxContent from './components/sections/gxContent.vue'
-
-import { TweenMax } from 'gsap'
+import gxFooter from './components/common/footer.vue'
 
 export default {
   name: 'App',
   components: {
     gxHeader,
     gxLoader,
-    gxContent
+    gxContent,
+    gxFooter
   },
   data () {
     return {
@@ -29,7 +30,10 @@ export default {
   },
   mounted () {
     this.axios.get(this.publicPath + '/static/assets/videos/home.mp4').then(() => {
-      this.isLoaded = true
+      document.getElementsByClassName('gx-loader')[0].classList.add('complete')
+      setTimeout(() => {
+        this.isLoaded = true
+      }, 100);
     })
     Axios({
       method: 'get',
@@ -37,19 +41,10 @@ export default {
       onDownloadProgress: function(progressEvent) {
         let progress = Math.round((progressEvent.loaded * 100) / progressEvent.total)
         if (progress == 100) {
-          console.log('loaded')
           this.isLoaded = true
         }
       }
     })
-    this.$scrollmagic.handleScrollTo = function (target) {
-      TweenMax.to(window, 1.5, {
-        scrollTo: {
-        y: target,
-        autoKill: false
-      }
-      })      
-    }
   }
 }
 </script>

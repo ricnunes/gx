@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import isElementVisible from "../utilities/u-isElementVisible.vue";
 import gxHome from './gx-home.vue';
 import gxSectionTwo from './gx-section2.vue';
 import gxSectionThree from './gx-section3.vue';
@@ -34,15 +33,6 @@ export default({
     gxSectionHeight
   },
   mounted() {
-    const content = document.getElementsByClassName('gx-section');
-
-    content.forEach((item) => {
-      item.addEventListener('scroll', function () {
-        if (isElementVisible(item)) {
-          console.log(item);
-        }
-      })
-    })
   }
 })
 </script>

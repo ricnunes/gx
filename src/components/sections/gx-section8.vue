@@ -69,19 +69,12 @@ export default {
 
 <style lang="scss">
 .gx-section--height {
-  min-height: auto;
+  height: auto;
   background-repeat: no-repeat;
   background-position: bottom left;
   color: $white;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(
-    at -8% 100%,
-    rgba(3, 77, 185, 0.4) 5px,
-    transparent 70%
-  );
-  background-repeat: no-repeat;
-  background-position: bottom left;
   .container {
     width: 100%;
     color: white;

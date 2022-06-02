@@ -111,9 +111,7 @@ export default {
       const cells = document.getElementsByClassName('cell')
       if (this.isVisible) {
         this.onEnter(cells);
-      } else {
-        this.onLeave(cells);
-      }
+      } 
     },
     onEnter(items) {
       items.forEach((item, index) =>  {
@@ -144,34 +142,6 @@ export default {
       }
       )
     },
-    onLeave(items) {
-      items.forEach((item, index) =>  {
-        // eslint-disable-next-line
-        let number = item.querySelectorAll('h1 .number');
-        let target = {val: number[0].innerText};
-        let content = item.querySelectorAll('p');
-        gsap.to(item, {
-          duration: 0.2,
-          opacity: 0,
-          scale: 0,
-          delay: index * .15
-        })
-        gsap.to(content, {
-          duration: 0.2,
-          opacity: 0,
-          scale: 0,
-          delay: index * .15
-        })
-        gsap.to(target, {
-          val: 0,
-          duration: 2,
-          delay: index * .15,
-          onUpdate: function() {
-            number[0].innerHTML = target.val.toFixed(1);
-          }
-        })
-      })
-    }
   },
 };
 </script>

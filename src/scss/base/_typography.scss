@@ -67,6 +67,24 @@ h6 {
   }
 }
 
+footer {
+  h6, li {
+    font-family: $primary-font;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    @include breakpoint($medium) {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+  }
+  h6 {
+    text-transform: uppercase;
+  }
+  li {
+    font-family: $secondary-font;
+  }
+}
+
 p, body {
   font-family: $primary-font;
   font-size: 1.6rem;

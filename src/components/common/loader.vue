@@ -36,6 +36,12 @@ export default {
   align-content: center;
   justify-content: center;
   background: black;
+  transition: opacity .4s ease;
+  opacity: 1;
+  &.complete {
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
 }
 lottie-player {
   width: 110px;

@@ -10,7 +10,13 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(VueObserveVisibility)
 Vue.use(VueScrollmagic, {
-  vertical: true
+  vertical: true,
+  globalSceneOptions: {
+    triggerHook: "onLeave",
+    duration: "100%"
+  },
+  loglevel: 2,
+  refreshInterval: 5
 })
 Vue.use(LottieVuePlayer)
 

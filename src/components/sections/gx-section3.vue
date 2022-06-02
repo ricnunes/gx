@@ -103,11 +103,9 @@ export default {
       width: 350px;
       opacity: 0;
       transition: all 1s ease;
-      transform: scale(0);
       &.isVisible {
         transition: all 1s ease;
         opacity: 1;
-        transform: scale(1);
       }
       h3 {
         margin-bottom: 5rem;

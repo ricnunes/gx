@@ -62,18 +62,35 @@
   padding: 5px 10px;
   background:  linear-gradient(182.35deg, rgba(255, 255, 255, 0) 112.94%, #006DD8 126.56%);
   transition: all 0.2s;
-  &--lightB {
-    color: black;
-    &:hover {
-      background: linear-gradient(182.35deg, rgba(255, 255, 255, 0) 1.97%, #006DD8 126.56%);
-      transition: all 0.2s;
+  position: relative;
+  z-index: 2;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .4s linear;
+  }
+  &:hover {
+    &::before {
+      opacity: 1;
+      transition: opacity .4s linear;
     }
+  }
+  &--lightB {
+    &::before {
+      background: linear-gradient(182.35deg, rgba(255, 255, 255, 0) 1.97%, #006DD8 126.56%);
+    }
+    color: black;
   }
   &--darkB {
     color: white;
-    &:hover {
+    &::before {
       background: linear-gradient(179.55deg, rgba(0, 0, 0, 0) 0.39%, #006DD8 102.18%);
-      transition: all 0.2s;
     }
   }
 }

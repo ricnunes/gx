@@ -102,7 +102,13 @@
       <div class="content">
         <h1 id="gxScrambleOne"></h1>
         <h4 id="gxScrambleTwo"></h4>
-        <h5 id="gxScrambleThree">The ontology integrates data from multiple sources into a single ecosystem and provides analytics teams with high quality fuel. The Analytics engine offers insight advantage through early trend detection. The Visualisation layer offers beautifully engineered dashboards with real-time simulation.</h5>
+        <h5 id="gxScrambleThree">
+          The ontology integrates data from multiple sources into a single
+          ecosystem and provides analytics teams with high quality fuel. The
+          Analytics engine offers insight advantage through early trend
+          detection. The Visualisation layer offers beautifully engineered
+          dashboards with real-time simulation.
+        </h5>
         <h5 id="gxScrambleFour">Let’s see what this thing can do.</h5>
         <button
           class="btn btn--primary btn--primary--darkB"
@@ -135,9 +141,9 @@ export default {
       this.isVideoPlaying = !this.isVideoPlaying;
     },
     scrambleText() {
-      let tl = gsap.timeline({ defaults: { duration: 2, ease: "none" } });
+      let tl = gsap.timeline({ defaults: { duration: 1, ease: "none" } });
       tl.to("#gxScrambleOne", {
-        duration: 2,
+        duration: 0.5,
         scrambleText: {
           text: "Your ultimate data platform.",
           chars: "lowerCase",
@@ -145,27 +151,27 @@ export default {
           tweenLength: false,
         },
       })
-      .to("#gxScrambleTwo", {
-        duration: 1,
-        scrambleText: {
-          text: "AI-driven Smart Data Platform turning data into truth.",
-          chars: "lowerCase",
-          revealDelay: 0.5,
-          tweenLength: false,
-        },
-      })
-      .to("#gxScrambleThree", {
-        duration: 1,
-        opacity: 1
-      })
-      .to("#gxScrambleFour", {
-        duration: 1,
-        opacity: 1
-      })
-      .to("#gxScrambleFive", {
-        duration: 1,
-        opacity: 1
-      });
+        .to("#gxScrambleTwo", {
+          duration: 0.5,
+          scrambleText: {
+            text: "AI-driven Smart Data Platform turning data into truth.",
+            chars: "lowerCase",
+            revealDelay: 0.5,
+            tweenLength: false,
+          },
+        })
+        .to("#gxScrambleThree", {
+          duration: 0.5,
+          opacity: 1,
+        })
+        .to("#gxScrambleFour", {
+          duration: 0.5,
+          opacity: 1,
+        })
+        .to("#gxScrambleFive", {
+          duration: 0.5,
+          opacity: 1,
+        });
     },
     allowScroll() {
       document.body.classList.toggle("scrollLocked");
@@ -188,11 +194,11 @@ export default {
     });
 
     function playVideoWhenVisible() {
-      document
-        .querySelectorAll("video")
-        .forEach((video) =>
-          elementIsVisible(video) ? video.play() : video.pause()
-        );
+      document.querySelectorAll("video").forEach((video) => {
+        if (!video.classList.contains("animatedVideo")) {
+          elementIsVisible(video) ? video.play() : video.pause();
+        }
+      });
     }
 
     function elementIsVisible(el) {
@@ -227,7 +233,7 @@ export default {
 
 <style lang="scss">
 .skip {
-  position: absolute;
+  position: absolute !important;
   left: 0;
   right: 0;
   bottom: 20vh;

@@ -1,6 +1,6 @@
 <template>
   <div class="gx-section gx-section--six VideoBg">
-    <video autoplay playsinline :muted="muted" ref="video">
+    <video playsinline :muted="muted" ref="video" class="animatedVideo">
       <source src="../../assets/videos/section6.mp4" />
     </video>
     <div class="VideoBg__content">
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+// import gsap from "gsap";
+
 export default {
   props: {
     muted: {
@@ -20,6 +22,7 @@ export default {
   data() {
     return {
       videoRatio: null,
+      videoDuration: null,
     };
   },
   mounted() {
@@ -27,6 +30,7 @@ export default {
     this.setContainerHeight();
     if (this.videoCanPlay()) {
       this.$refs.video.oncanplay = () => {
+        this.videoDuration = this.$refs.video.duration;
         if (!this.$refs.video) return;
         this.videoRatio =
           this.$refs.video.videoWidth / this.$refs.video.videoHeight;
@@ -35,6 +39,20 @@ export default {
       };
     }
     window.addEventListener("resize", this.resize);
+    const scene = this.$scrollmagic.scene({
+      triggerElement: ".gx-section--six",
+      offset: 0
+    })
+    .setPin(".gx-section--six")
+    .setTween(this.$refs.video, {
+      currentTime: this.videoDuration ? this.videoDuration : '10.04',
+      overwrite: true,
+      pause: true
+    })
+    .addIndicators({
+      name: "video"
+    })
+    this.$scrollmagic.addScene(scene)
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.resize);
@@ -100,7 +118,7 @@ export default {
   }
   .VideoBg__content {
     position: absolute;
-    top: 6.5rem;
+    top: 14.5rem;
     left: 0;
     right: 0;
     height: 100%;
@@ -110,7 +128,6 @@ export default {
       width: 50%;
       margin: 0 auto;
     }
-    
   }
 }
 </style>
