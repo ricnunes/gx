@@ -37,9 +37,6 @@ export default {
       const video1Total = video1.duration
       const video2Total = video2.duration
 
-      console.log({video1}, {video1Total}, {video2}, {video2Total})
-
-
       let tl = gsap.timeline({
         defaults: { duration: 10 },
         scrollTrigger: {
