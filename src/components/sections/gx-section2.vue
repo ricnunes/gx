@@ -1,76 +1,105 @@
 <template>
   <div class="gx-section gx-section--two">
-    <h3  v-observe-visibility="visibilityChanged"></h3>
-    <transition name="slide-out" >
-      <div class="videoAnimation" v-show="isFirstVideoplaying()">
+    <h3 v-observe-visibility="visibilityChanged"></h3>
+    <div class="videoAnimation">
         <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-        <video autoplay playsinline muted="muted" ref="video">
+        <video class="videoOne" autoplay playsinline muted="muted" ref="video">
           <source src="../../assets/videos/section1.mp4" />
         </video>
-      </div>
-    </transition>
-    <transition name="slide-in">
-      <div class="videoAnimation" v-show="!isFirstVideoplaying()">
-        <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-        <video autoplay playsinline muted="muted" ref="video">
+        <video class="videoTwo" autoplay playsinline muted="muted" ref="video">
           <source src="../../assets/videos/section1-2.mp4" />
         </video>
       </div>
-    </transition>
   </div>
 </template>
 
 <script>
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default {
   data() {
     return {
-      hasFirstVideoStopped: false,
       isVisible: false
     };
   },
   methods: {
-    isFirstVideoplaying() {
-      if (this.hasFirstVideoStopped) {
-        this.textAnimation("Internal and external data sources connected.", ".gx-section--two h3")
-        return false;
-      } else {
-        this.textAnimation("Confidence and sophistication in decision making.", ".gx-section--two h3")
-        return true;
-      }
-    },
-    textAnimation(text, section) {
+    textAnimation() {
       gsap.registerPlugin(ScrambleTextPlugin);
-      let tl = gsap.timeline({ defaults: { duration: 2, ease: "none" } });
-      tl.to(section, {
-          duration: 1,
+      gsap.registerPlugin(ScrollTrigger);
+
+      const gxSectionTwo = document.getElementsByClassName('gx-section--two')[0]
+      const title = gxSectionTwo.querySelectorAll('h3')[0]
+      const video1 = gxSectionTwo.querySelectorAll('.videoOne')[0]
+      const video2 = gxSectionTwo.querySelectorAll('.videoTwo')[0]
+
+      const video1Total = video1.duration
+      const video2Total = video2.duration
+
+      console.log({video1}, {video1Total}, {video2}, {video2Total})
+
+
+      let tl = gsap.timeline({
+        defaults: { duration: 10 },
+        scrollTrigger: {
+          trigger: gxSectionTwo,
+          pin: true,
+          start: "top top",
+          stop: "bottom bottom",
+          scrub: true,
+          pinSpacing: true
+        },
+      })
+
+      tl.to(title, {
+          duration: 5,
           scrambleText: {
-            text: text,
+            text: "Confidence and sophistication in decision making",
             chars: "lowerCase",
             revealDelay: 0,
             tweenLength: false,
           },
-        });
+        })
+        .to(video1, {
+          duration: 1,
+          opacity: 1
+        })
+        .to(video1, {
+          duration: video1Total * 3,
+          currentTime: video1Total,
+          overwite: true,
+          pause: true
+        })
+        .to(title, {
+          duration: 5,
+          scrambleText: {
+            text: "Internal and external data sources connected.",
+            chars: "lowerCase",
+            revealDelay: 0,
+            tweenLength: false,
+          },
+        })
+        .to(video2, {
+          duration: 1,
+          opacity: 1
+        })
+        .to(video2, {
+          duration: video2Total * 3,
+          currentTime: video2Total,
+          overwite: true,
+          pause: true
+        })
     },
     visibilityChanged (isVisible) {
       this.isVisible = isVisible
       if (this.isVisible) {
-        this.textAnimation("Confidence and sophistication in decision making.", ".gx-section--two h3")
-      } else {
-        this.textAnimation("", ".gx-section--two h3")
-        if (this.hasFirstVideoStopped) {
-          this.hasFirstVideoStopped = false
-        }
+        this.textAnimation()
       }
-    },
+      }
   },
   mounted() {
-    const video = document.querySelectorAll(".gx-section--two video");
-    video[0].addEventListener("ended", () => {
-      this.hasFirstVideoStopped = true;
-    });
+
     
   },
 };
@@ -89,6 +118,9 @@ export default {
   justify-content: center;
   flex-direction: column;
   overflow-x: hidden;
+  h3 {
+    margin-top: 12rem;
+  }
   .videoAnimation {
     display: flex;
     justify-content: center;
@@ -119,6 +151,7 @@ export default {
       bottom: 0;
       margin: auto;
       width: 50%;
+      opacity: 0;
     }
   }
 }

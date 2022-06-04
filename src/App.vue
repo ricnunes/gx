@@ -3,7 +3,7 @@
     <gxHeader />
     <gxLoader v-show="!isLoaded" />
     <gxContent v-if="isLoaded" />
-    <gxFooter />
+    
   </div>
 </template>
 
@@ -12,15 +12,13 @@ import Axios from 'axios'
 import gxHeader from './components/common/header.vue'
 import gxLoader from './components/common/loader.vue'
 import gxContent from './components/sections/gxContent.vue'
-import gxFooter from './components/common/footer.vue'
 
 export default {
   name: 'App',
   components: {
     gxHeader,
     gxLoader,
-    gxContent,
-    gxFooter
+    gxContent
   },
   data () {
     return {

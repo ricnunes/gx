@@ -193,34 +193,34 @@ export default {
       this.isVideoPlaying = !this.isVideoPlaying;
     });
 
-    function playVideoWhenVisible() {
-      document.querySelectorAll("video").forEach((video) => {
-        if (!video.classList.contains("animatedVideo")) {
-          elementIsVisible(video) ? video.play() : video.pause();
-        }
-      });
-    }
+    // function playVideoWhenVisible() {
+    //   document.querySelectorAll("video").forEach((video) => {
+    //     if (!video.classList.contains("animatedVideo") ) {
+    //       elementIsVisible(video) ? video.play() : video.pause();
+    //     }
+    //   });
+    // }
 
-    function elementIsVisible(el) {
-      let rect = el.getBoundingClientRect();
-      return (
-        rect.bottom >= 0 &&
-        rect.right >= 0 &&
-        rect.top <=
-          (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-      );
-    }
+    // function elementIsVisible(el) {
+    //   let rect = el.getBoundingClientRect();
+    //   return (
+    //     rect.bottom >= 0 &&
+    //     rect.right >= 0 &&
+    //     rect.top <=
+    //       (window.innerHeight || document.documentElement.clientHeight) &&
+    //     rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+    //   );
+    // }
 
-    let playVisibleVideosTimeout;
+    // let playVisibleVideosTimeout;
 
-    window.addEventListener("scroll", () => {
-      clearTimeout(playVisibleVideosTimeout);
-      playVisibleVideosTimeout = setTimeout(playVideoWhenVisible, 100);
-    });
+    // window.addEventListener("scroll", () => {
+    //   clearTimeout(playVisibleVideosTimeout);
+    //   playVisibleVideosTimeout = setTimeout(playVideoWhenVisible, 100);
+    // });
 
-    window.addEventListener("resize", playVideoWhenVisible);
-    window.addEventListener("DOMContentLoaded", playVideoWhenVisible);
+    // window.addEventListener("resize", playVideoWhenVisible);
+    // window.addEventListener("DOMContentLoaded", playVideoWhenVisible);
   },
   watch: {
     isVideoPlaying() {

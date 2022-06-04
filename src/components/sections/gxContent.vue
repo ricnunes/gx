@@ -8,6 +8,7 @@
     <gxSectionSix />
     <gxSectionSeven />
     <gxSectionHeight />
+    <gxFooter />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import gxSectionFive from './gx-section5.vue';
 import gxSectionSix from './gx-section6.vue';
 import gxSectionSeven from './gx-section7.vue';
 import gxSectionHeight from './gx-section8.vue';
+import gxFooter from '../common/footer.vue'
 
 export default({
   components: {
@@ -30,7 +32,8 @@ export default({
     gxSectionFive,
     gxSectionSix,
     gxSectionSeven,
-    gxSectionHeight
+    gxSectionHeight,
+    gxFooter
   },
   mounted() {
   }

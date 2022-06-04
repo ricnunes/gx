@@ -16,7 +16,7 @@ Vue.use(VueScrollmagic, {
     duration: "100%"
   },
   loglevel: 2,
-  refreshInterval: 5
+  refreshInterval: 100
 })
 Vue.use(LottieVuePlayer)
 

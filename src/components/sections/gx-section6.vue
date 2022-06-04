@@ -5,12 +5,18 @@
     </video>
     <div class="VideoBg__content">
       <h3>Ontology connecting data into a single data ecosystem</h3>
+      <p>Making your data more aware and turning it into truth.</p>
+      <div class="button-container">
+        <a href="#" class="btn btn--primary btn--primary--darkB">Find out How</a>
+      </div>      
     </div>
+
   </div>
 </template>
 
 <script>
-// import gsap from "gsap";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default {
   props: {
@@ -23,36 +29,128 @@ export default {
     return {
       videoRatio: null,
       videoDuration: null,
+      isVisible: false,
     };
   },
   mounted() {
-    this.setImageUrl();
+    const section6 = document.querySelectorAll(".gx-section--six h3")[0];
+    const that = this;
+
     this.setContainerHeight();
     if (this.videoCanPlay()) {
       this.$refs.video.oncanplay = () => {
         this.videoDuration = this.$refs.video.duration;
         if (!this.$refs.video) return;
-        this.videoRatio =
-          this.$refs.video.videoWidth / this.$refs.video.videoHeight;
+        this.$refs.video.videoWidth / this.$refs.video.videoHeight;
         this.setVideoSize();
         this.$refs.video.style.visibility = "visible";
       };
     }
     window.addEventListener("resize", this.resize);
-    const scene = this.$scrollmagic.scene({
-      triggerElement: ".gx-section--six",
-      offset: 0
-    })
-    .setPin(".gx-section--six")
-    .setTween(this.$refs.video, {
-      currentTime: this.videoDuration ? this.videoDuration : '10.04',
-      overwrite: true,
-      pause: true
-    })
-    .addIndicators({
-      name: "video"
-    })
-    this.$scrollmagic.addScene(scene)
+
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+          (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    var once = true
+
+
+    window.addEventListener("scroll", function () {
+      if (isInViewport(section6) && once) {
+        once = !once
+        videoAnimation();
+      }
+    });
+    function videoAnimation() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const title = document.querySelectorAll(".gx-section--six h3");
+      const content = document.querySelectorAll(".gx-section--six p");
+      const button = document.querySelectorAll(".gx-section--six .button-container");
+
+      let tl = gsap.timeline({
+        defaults: { duration: 10 },
+        scrollTrigger: {
+          trigger: ".gx-section--six",
+          pin: true,
+          start: "top top",
+          stop: "bottom top",
+          scrub: true,
+        },
+      });
+
+      tl.fromTo(title, {
+        duration: 1,
+        opacity: 0
+      },
+      {
+        duration: 1,
+        opacity: 1
+      })
+      .to(
+        that.$refs.video,
+        {
+          duration: 40,
+          currentTime: 10.5,
+          overwrite: true,
+          pause: true
+        }
+      )
+      .to(title, {
+        duration: 1,
+        opacity: 0,
+        width: "50%"
+      })
+      .to(title, {
+        duration: 1,
+        width: "80%",
+        scrambleText: {
+          text: "",
+          chars: "lowerCase"
+        }
+      })
+      .to(title, {
+        duration: 2,
+        opacity: 1,
+        delay: 1,
+      })
+      .to(title, {
+        duration: 2,
+        scrambleText: {
+            text: "Pipeline-driven Architecture enabled by human supervised algorithms",
+            chars: "lowerCase",
+            revealDelay: 0,
+            tweenLength: false,
+          },
+      })
+      .to(content, {
+        duration: 2,
+        opacity: 1
+      })
+      .to(button, {
+        delay: 2,
+        duration: 2,
+        opacity: 1
+      })
+
+      // tl.addLabel("start")
+      //   .to(that.$refs.video, {
+      //     currentTime: that.videoDuration ? that.videoDuration : "10.04",
+      //     overwrite: true,
+      //     pause: true,
+      //   })
+      //   .addLabel("end")
+      //   .to(title, { rotation: 360 })
+      //   .addLabel("end end");
+    }
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.resize);
@@ -66,11 +164,6 @@ export default {
     },
     videoCanPlay() {
       return !!this.$refs.video.canPlayType;
-    },
-    setImageUrl() {
-      if (this.img) {
-        this.$el.style.backgroundImage = `url(${this.img})`;
-      }
     },
     setContainerHeight() {
       this.$el.style.height = `${window.innerHeight}px`;
@@ -86,6 +179,11 @@ export default {
       }
       this.$refs.video.style.width = width ? `${width}px` : "auto";
       this.$refs.video.style.height = height ? `${height}px` : "auto";
+    },
+
+    visibilityChanged(isVisible) {
+      this.isVisible = isVisible;
+      this.videoAnimation();
     },
   },
 };
@@ -118,15 +216,27 @@ export default {
   }
   .VideoBg__content {
     position: absolute;
-    top: 14.5rem;
+    top: 0;
     left: 0;
     right: 0;
     height: 100%;
     margin: 0 auto;
     text-align: center;
+    padding-top: 14.5rem;
     h3 {
       width: 50%;
       margin: 0 auto;
+      margin-bottom: 50px;
+    }
+    .button-container {
+      position: absolute;
+      bottom: 12.5rem;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    p, .button-container {
+      opacity: 0;
     }
   }
 }

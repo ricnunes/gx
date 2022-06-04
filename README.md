@@ -41,3 +41,11 @@ git checkout pg-pages
 ```
 git checkout development
 ```
+
+
+## When changing videos
+1 - Download ffmpeg build
+2 - run the following command:
+```
+ffmpeg -i original.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
+```
