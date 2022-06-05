@@ -1,4 +1,51 @@
 .gx-section {
-  padding: 50px;
+  padding: 20px;
   min-height: 100vh;
+}
+
+.menu {
+  margin: 0 40px;
+}
+
+.hidden-xs {
+  display: none;
+  @include breakpoint($small) {
+    display: block;
+  }
+}
+
+.hidden-md {
+  @include breakpoint($medium) {
+    display: none;
+  }
+  @include breakpoint($large) {
+    display: flex;
+  }
+}
+
+.hidden-lg {
+  @include breakpoint($large) {
+    display: none;
+  }
+}
+
+.show-xs {
+  display: block;
+  @include breakpoint($small) {
+    display: none;
+  }
+}
+
+.show-md {
+  display: none;
+  @include breakpoint($medium) {
+    display: block;
+  }
+}
+
+.show-lg {
+  display: none;
+  @include breakpoint($large) {
+    display: block;
+  }
 }

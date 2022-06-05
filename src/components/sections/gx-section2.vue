@@ -129,12 +129,17 @@ export default {
     justify-content: center;
     align-content: center;
     position: relative;
-    width: 80vw;
-    height: 88vh;
+    width: 100%;
+    height: 100%;
     overflow: visible;
     background-size: 100%;
     margin: auto;
-    max-width: 80vw;
+    max-width: 100vw;
+    @include breakpoint($medium) {
+      max-width: 80vw;
+      width: 88vw;
+      height: 88vh;
+    }
     img {
       position: absolute;
       top: 0;
@@ -142,9 +147,12 @@ export default {
       bottom: 0;
       right: 0;
       margin: auto;
-      width: 55%;
+      width: 100%;
       box-shadow: 0px 0px 79px 29px rgba(0, 109, 216, 0.5);
       border-radius: 37px;
+      @include breakpoint($medium) {
+        width: 55%;
+      }
     }
     video {
       position: absolute;
@@ -153,8 +161,11 @@ export default {
       left: 0px;
       bottom: 0;
       margin: auto;
-      width: 50%;
+      width: 88%;
       opacity: 0;
+      @include breakpoint($medium) {
+        width: 50%;
+      }
     }
   }
 }

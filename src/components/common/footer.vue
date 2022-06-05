@@ -39,6 +39,13 @@
         </div>
         <div class="subs">
           <h4>Sign up to our newsletter</h4>
+          <form action="">
+            <div class="input-group">
+            <input type="text" placeholder="Your email address">
+            <input type="submit">
+            </div>
+          </form>
+
         </div>
       </div>
       <hr />
@@ -70,12 +77,16 @@ footer {
   background-position: bottom left;
   .flex-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: space-between;
+    @include breakpoint($medium) {
+      flex-direction: row;
+    }
   }
   .footer-container {
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
+    padding: 0 50px;
   }
   .logo {
     margin-bottom: 6.5rem;
@@ -86,9 +97,12 @@ footer {
   }
   .nav-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 5rem;
     padding-bottom: 6.2rem;
+    @include breakpoint($medium) {
+      flex-direction: row;
+    }
     h6 {
       margin-bottom: 2rem;
     }

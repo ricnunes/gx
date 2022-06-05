@@ -1,5 +1,5 @@
 <template>
-  <div class="gx-section gx-section--height">
+  <div class="gx-section gx-section--eight">
     <div class="container">
       <h2>Our Thinking</h2>
       <VueSlickCarousel :arrows="false" :dots="false" v-bind="settings">
@@ -48,13 +48,19 @@ export default {
   data() {
     return {
       settings: {
-        slidesToShow: 2.5,
+        slidesToShow: 3,
         infinite: false,
         responsive: [
           {
+            breakpoint: 1441,
+            settings: {
+              slidesToShow: 2.3,
+            },
+          },
+          {
             breakpoint: 900,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 1.1,
             },
           },
         ],
@@ -68,27 +74,33 @@ export default {
 
 
 <style lang="scss">
-.gx-section--height {
-  height: auto;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  color: $white;
-  display: flex;
-  flex-direction: column;
-  .container {
-    width: 100%;
-    color: white;
-    padding-left: 200px;
-    @include breakpoint($min-width: 1239px) {
-      max-width: 1240px;
+.gx-section {
+  &.gx-section--eight {
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+    padding-left: 20px;
+    overflow: hidden;
+    .container {
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 0;
-    }
-    h2 {
-      margin-bottom: 18.7rem;
-    }
-    .slick-slider {
-      margin-bottom: 20rem;
+      width: 100%;
+      color: white;
+      @include breakpoint($min-width: 1239px) {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0;
+      }
+      h2 {
+        margin-bottom: 18.7rem;
+      }
+      .slick-slider {
+        margin-bottom: 20rem;
+      }
     }
   }
 }

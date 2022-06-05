@@ -1,6 +1,9 @@
 <template>
   <section class="slide-container">
-    <div class="slide">
+    <div
+      class="slide"
+      :style="`background-image: url(${publicPath}/static/assets/imgs/${source})`"
+    >
       <div class="header">
         <h6 class="tag">{{ tagName }}</h6>
         <h6 class="date">{{ date }}</h6>
@@ -10,9 +13,9 @@
         <a :href="link" class="link link--darkB">Read More</a>
       </div>
     </div>
-    <div class="image">
+    <!-- <div class="image">
       <img :src="`${publicPath}/static/assets/imgs/${source}`" alt="">
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -37,12 +40,12 @@ export default {
     },
     source: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : ""
+      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : "",
     };
   },
 };
@@ -55,34 +58,45 @@ export default {
   overflow: hidden;
   overflow: hidden;
   padding: 0 10px;
+  min-height: 560px;
+
+  background-size: cover;
   &:hover {
-    .image {
-      img {
-        transform: scale(1.2);
-        transition: transform 0.2s ease;
-      }
+    .slide {
+      background-size: auto 120%;
+      transition: all 0.5s ease;
     }
   }
 }
 .image {
-    position: absolute;
-    top: 0;
-    left: 5px;
-    right: 5px;
-    bottom: 0;
-    z-index: 1;
-    overflow: hidden;
-    img {
-      object-fit: cover;
-      transform: scale(1.05);
-      transition: transform 0.2s ease;
-    }
+  position: absolute;
+  top: 0;
+  left: 5px;
+  right: 5px;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
   }
+}
 .slide {
   padding: 20px;
   transition: all 0.5s ease;
-  position: relative; 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 560px;
   z-index: 2;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+  transition: all 0.5s ease;
+  border-radius: 5px;
   .header {
     display: flex;
     flex-direction: row;

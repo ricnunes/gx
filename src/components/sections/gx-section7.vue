@@ -1,5 +1,6 @@
 <template>
   <div class="gx-section gx-section--seven">
+    <div class="bg-mobile show-xs show-md show-lg"></div>
     <div class="title" v-observe-visibility="visibilityChanged">
       <h3>Disrupting the Financial Services Industry</h3>
     </div>
@@ -20,7 +21,8 @@
 </template>
 
 <script>
-import gsap from 'gsap'
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import gxCell from "../utilities/gx-cell.vue";
 export default {
@@ -108,39 +110,50 @@ export default {
   methods: {
     visibilityChanged(isVisible) {
       this.isVisible = isVisible;
-      const cells = document.getElementsByClassName('cell')
+      const cells = document.getElementsByClassName("cell");
       if (this.isVisible) {
         this.onEnter(cells);
-      } 
+      }
     },
     onEnter(items) {
-      items.forEach((item, index) =>  {
-        let target = {val: 0};
+      gsap.registerPlugin(ScrollTrigger);
+      // eslint-disable-next-line
+      let tl = gsap.timeline({
+        defaults: { duration: 10 },
+        scrollTrigger: {
+          trigger: ".gx-section--seven",
+          pin: ".bg-mobile",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+        },
+      })
+      items.forEach((item, index) => {
+        let target = { val: 0 };
         // eslint-disable-next-line
-        let number = item.querySelectorAll('h1 .number');
-        let content = item.querySelectorAll('p');
+        let number = item.querySelectorAll("h1 .number");
+        let content = item.querySelectorAll("p");
         gsap.to(item, {
           duration: 0.2,
           opacity: 1,
           scale: 1,
-          delay: index * .15
-        })
+          delay: index * 0.15,
+        });
         gsap.to(content, {
           duration: 0.3,
           opacity: 1,
           scale: 1,
-          delay: index * .25
-        })     
+          delay: index * 0.25,
+        });
         gsap.to(target, {
           val: this.cells[index].title,
           duration: 2,
-          onUpdate: function() {
+          onUpdate: function () {
             number[0].innerHTML = target.val.toFixed(0);
           },
-          delay: index * .15,
-        })
-      }
-      )
+          delay: index * 0.15,
+        });
+      });
     },
   },
 };
@@ -154,14 +167,35 @@ export default {
   color: $white;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(
-    circle at 50% 50%,
-    #006dd8 0.87%,
-    rgba(0, 0, 0, 0) 60%
-  );
+  overflow: hidden;
+  position: relative;
+  @include breakpoint($medium) {
+    background: radial-gradient(
+      circle at 50% 50%,
+      #006dd8 0.87%,
+      rgba(0, 0, 0, 0) 60%
+    );
+  }
+  @include iPad() {
+    background: none;
+  }
+  .bg-mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(
+      circle at 50% 50%,
+      #006dd8 0.87%,
+      rgba(0, 0, 0, 0) 60%
+    );
+  }
   .title {
     width: 100%;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
   }
   h3 {
@@ -170,7 +204,7 @@ export default {
   .grid-container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     gap: 5px;
     margin-top: 14.5rem;
@@ -181,11 +215,23 @@ export default {
       &:nth-child(6),
       &:nth-child(7),
       &:nth-child(8) {
-        width: 33%;
+        width: 100%;
+        @include breakpoint($medium) {
+          width: 33%;
+        }
+        @include iPad() {
+          width: 100%;
+        }
       }
       &:nth-child(4),
       &:nth-child(5) {
-        width: calc(50% - 5px);
+        width: 100%;
+        @include breakpoint($medium) {
+          width: calc(50% - 5px);
+        }
+        @include iPad() {
+          width: 100%;
+        }
       }
     }
   }

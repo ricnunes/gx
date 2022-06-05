@@ -215,9 +215,13 @@ export default {
     text-align: center;
     padding-top: 14.5rem;
     h3 {
-      width: 50%;
+      width: 100%;
       margin: 0 auto;
-      margin-bottom: 50px;
+      margin-bottom: 37vh;
+      @include breakpoint($medium) {
+        width: 50%;
+        margin-bottom: 50px;
+      }
     }
     .button-container {
       position: absolute;

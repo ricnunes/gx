@@ -192,35 +192,6 @@ export default {
     video.addEventListener("ended", () => {
       this.isVideoPlaying = !this.isVideoPlaying;
     });
-
-    // function playVideoWhenVisible() {
-    //   document.querySelectorAll("video").forEach((video) => {
-    //     if (!video.classList.contains("animatedVideo") ) {
-    //       elementIsVisible(video) ? video.play() : video.pause();
-    //     }
-    //   });
-    // }
-
-    // function elementIsVisible(el) {
-    //   let rect = el.getBoundingClientRect();
-    //   return (
-    //     rect.bottom >= 0 &&
-    //     rect.right >= 0 &&
-    //     rect.top <=
-    //       (window.innerHeight || document.documentElement.clientHeight) &&
-    //     rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-    //   );
-    // }
-
-    // let playVisibleVideosTimeout;
-
-    // window.addEventListener("scroll", () => {
-    //   clearTimeout(playVisibleVideosTimeout);
-    //   playVisibleVideosTimeout = setTimeout(playVideoWhenVisible, 100);
-    // });
-
-    // window.addEventListener("resize", playVideoWhenVisible);
-    // window.addEventListener("DOMContentLoaded", playVideoWhenVisible);
   },
   watch: {
     isVideoPlaying() {
@@ -386,6 +357,7 @@ export default {
   align-content: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
   .content {
     width: 100%;
     margin: 0 auto;
@@ -393,14 +365,22 @@ export default {
       width: 70%;
     }
     h1 {
-      margin-bottom: 7.3rem;
+      margin-bottom: 3rem;
+      @include breakpoint($medium) {
+        margin-bottom: 7.3rem;
+      }
     }
     h4 {
-      margin-bottom: 5rem;
+      margin-bottom: 1rem;
+      @include breakpoint($medium) {
+        margin-bottom: 5rem;
+      }
     }
     h5 {
-      margin-bottom: 2.5rem;
-      max-width: 70%;
+      @include breakpoint($medium) {
+        max-width: 70%;
+        margin-bottom: 2.5rem;
+      }
       margin-left: auto;
       margin-right: auto;
       opacity: 0;
@@ -409,7 +389,10 @@ export default {
       }
     }
     button {
-      margin-top: 7.5rem;
+      margin-top: 3rem;
+      @include breakpoint($medium) {
+        margin-top: 7.5rem;
+      }
       opacity: 0;
     }
   }
