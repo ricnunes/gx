@@ -50,13 +50,14 @@ export default {
       })
 
       tl.to(title, {
-          duration: 5,
-          scrambleText: {
-            text: "Confidence and sophistication in decision making",
-            chars: "lowerCase",
-            revealDelay: 0,
-            tweenLength: false,
-          },
+        duration: 5,
+        scrambleText: {
+          text: "Confidence and sophistication in decision making",
+          chars: "lowerCase",
+          revealDelay: 0,
+          tweenLength: false,
+        },
+        opacity: 1,
         })
         .to(video1, {
           duration: 1,
@@ -86,6 +87,10 @@ export default {
           currentTime: video2Total,
           overwite: true,
           pause: true
+        })
+        .to(title, {
+          opacity: 0,
+          duration: 1
         })
     },
     visibilityChanged (isVisible) {
@@ -117,6 +122,7 @@ export default {
   overflow-x: hidden;
   h3 {
     margin-top: 12rem;
+    opacity: 0;
   }
   .videoAnimation {
     display: flex;

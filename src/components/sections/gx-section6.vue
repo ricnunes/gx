@@ -82,7 +82,7 @@ export default {
           trigger: ".gx-section--six",
           pin: true,
           start: "top top",
-          stop: "bottom top",
+          end: "bottom top",
           scrub: true,
         },
       });
@@ -140,16 +140,7 @@ export default {
         duration: 2,
         opacity: 1
       })
-
-      // tl.addLabel("start")
-      //   .to(that.$refs.video, {
-      //     currentTime: that.videoDuration ? that.videoDuration : "10.04",
-      //     overwrite: true,
-      //     pause: true,
-      //   })
-      //   .addLabel("end")
-      //   .to(title, { rotation: 360 })
-      //   .addLabel("end end");
+      .to({}, {duration: 5})
     }
   },
   beforeDestroy() {
