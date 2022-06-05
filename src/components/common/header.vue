@@ -55,6 +55,7 @@ header {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
+    align-items: center;
     @include breakpoint($x-large) {
       flex-direction: row;
     }

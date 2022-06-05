@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import Axios from 'axios'
 import gxHeader from './components/common/header.vue'
 import gxLoader from './components/common/loader.vue'
 import gxContent from './components/sections/gxContent.vue'
@@ -32,16 +31,6 @@ export default {
       setTimeout(() => {
         this.isLoaded = true
       }, 100);
-    })
-    Axios({
-      method: 'get',
-      url: '/static/assets/videos/home.mp4',
-      onDownloadProgress: function(progressEvent) {
-        let progress = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        if (progress == 100) {
-          this.isLoaded = true
-        }
-      }
     })
   }
 }
