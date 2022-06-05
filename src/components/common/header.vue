@@ -6,12 +6,12 @@
         <span></span>
         <span></span>
       </div>
-      <gxCommerceBar class="hidden-xs hidden-md hidden-lg" />
+      <gxCommerceBar class="show-xlg" />
       <div class="logo">
         <img src="../../assets/imgs/gx-logo-full.svg" />
       </div>
-      <gxMenu class="hidden-xs hidden-md hidden-lg" />
-      <div class="search hidden-xs hidden-md hidden-lg">
+      <gxMenu class="show-xlg" />
+      <div class="search show-xlg">
         <span></span>
       </div>
     </div>
@@ -55,7 +55,7 @@ header {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    @include breakpoint($large) {
+    @include breakpoint($x-large) {
       flex-direction: row;
     }
     @include iPad() {
@@ -91,7 +91,7 @@ header {
 .logo {
   max-width: 270px;
   margin-right: 70px;
-  @include breakpoint($large) {
+  @include breakpoint($x-large) {
     margin-right: 0;
   }
   @include iPad() {

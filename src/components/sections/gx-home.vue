@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition>
-      <div v-if="!hasVideoStopped()">
+      <div >
         <div class="gx-logo">
           <svg
             id="eSGJivPWXx41"
@@ -210,8 +210,8 @@ export default {
   bottom: 20vh;
   color: $white;
   cursor: pointer;
-  text-align: center;
-  @include breakpoint(760px) {
+  justify-content: center;
+  @include breakpoint($medium) {
     right: 100px;
     left: auto;
     text-align: left;

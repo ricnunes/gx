@@ -49,3 +49,10 @@
     display: block;
   }
 }
+
+.show-xlg {
+  display: none;
+  @include breakpoint($x-large) {
+    display: block;
+  }
+}
