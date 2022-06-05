@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition>
-      <div >
+      <div v-if="!hasVideoStopped()">
         <div class="gx-logo">
           <svg
             id="eSGJivPWXx41"
