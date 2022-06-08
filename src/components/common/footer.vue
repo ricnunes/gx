@@ -41,7 +41,7 @@
           <h4>Sign up to our newsletter</h4>
           <form action="">
             <div class="input-group">
-            <input type="text" placeholder="Your email address">
+            <input type="email" placeholder="Your email address">
             <input type="submit">
             </div>
           </form>
