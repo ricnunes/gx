@@ -207,7 +207,7 @@ export default {
   position: absolute !important;
   left: 0;
   right: 0;
-  bottom: 20vh;
+  bottom: 50px;
   color: $white;
   cursor: pointer;
   justify-content: center;

@@ -2,7 +2,7 @@
   <div class="menu">
     <ul>
       <li  v-for="menu in menus" :key="menu.id">
-        <a :href="menu.link">{{ menu.name }}</a>
+        <h6><a :href="menu.link">{{ menu.name }}</a></h6>
       </li>
     </ul>
   </div>

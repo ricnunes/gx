@@ -218,6 +218,7 @@ export default {
       width: 100%;
       margin: 0 auto;
       margin-bottom: 37vh;
+      opacity: 0;
       @include breakpoint($medium) {
         width: 50%;
         margin-bottom: 50px;

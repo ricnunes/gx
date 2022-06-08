@@ -112,8 +112,9 @@ export default {
 .gx-section--two {
   text-align: center;
   background: $black;
+  background: radial-gradient(at -8% -3%, rgba(3, 77, 185, 0.4) 5px, transparent 70%);
   background-repeat: no-repeat;
-  background-position: bottom left;
+  background-position: right bottom;
   color: $white;
   display: flex;
   align-content: center;

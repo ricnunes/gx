@@ -1,6 +1,6 @@
 <template>
   <div class="gx-section gx-section--seven">
-    <div class="bg-mobile show-xs show-md show-lg"></div>
+    <div class="bg-mobile"></div>
     <div class="title" v-observe-visibility="visibilityChanged">
       <h3>Disrupting the Financial Services Industry</h3>
     </div>
@@ -170,11 +170,7 @@ export default {
   overflow: hidden;
   position: relative;
   @include breakpoint($medium) {
-    background: radial-gradient(
-      circle at 50% 50%,
-      #006dd8 0.87%,
-      rgba(0, 0, 0, 0) 60%
-    );
+    background: radial-gradient(circle at 50% 50%, #006dd8 0.87%, rgba(0, 0, 0, 0) 42%);
   }
   @include iPad() {
     background: none;
@@ -192,6 +188,12 @@ export default {
       #006dd8 0.87%,
       rgba(0, 0, 0, 0) 60%
     );
+    @include iPad() {
+      display: block !important;
+    }
+    @include breakpoint($medium) {
+      display: none;
+    }
   }
   .title {
     width: 100%;
