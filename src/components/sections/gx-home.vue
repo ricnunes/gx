@@ -367,13 +367,13 @@ export default {
     h1 {
       margin-bottom: 3rem;
       @include breakpoint($medium) {
-        margin-bottom: 7.3rem;
+        margin-bottom: 5vh;
       }
     }
     h4 {
       margin-bottom: 1rem;
       @include breakpoint($medium) {
-        margin-bottom: 5rem;
+        margin-bottom: 2vh;
       }
     }
     h5 {
@@ -390,8 +390,8 @@ export default {
     }
     button {
       margin-top: 3rem;
-      @include breakpoint($medium) {
-        margin-top: 7.5rem;
+      @include breakpoint($large) {
+        margin-top: 5vh;
       }
       opacity: 0;
     }

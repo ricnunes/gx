@@ -152,7 +152,7 @@ export default {
       box-shadow: 0px 0px 79px 29px rgba(0, 109, 216, 0.5);
       border-radius: 37px;
       @include breakpoint($medium) {
-        width: 55%;
+        width: 70%;
       }
     }
     video {
@@ -165,7 +165,7 @@ export default {
       width: 88%;
       opacity: 0;
       @include breakpoint($medium) {
-        width: 50%;
+        width: 65%;
       }
     }
   }

@@ -145,7 +145,6 @@ export default {
     visibilityChanged(isVisible) {
       this.isVisible = isVisible;
       if (this.isVisible) {
-        console.log("is visible");
         this.animations();
       }
     },

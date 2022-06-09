@@ -2,7 +2,7 @@
   <div class="gx-section gx-section--seven">
     <div class="bg-mobile"></div>
     <div class="title" v-observe-visibility="visibilityChanged">
-      <h3>Disrupting the Financial Services Industry</h3>
+      <h3></h3>
     </div>
     <TransitionGroup class="grid-container" tag="div">
       <gxCell
@@ -117,20 +117,19 @@ export default {
     },
     onEnter(items) {
       gsap.registerPlugin(ScrollTrigger);
-      // eslint-disable-next-line
-      let tl = gsap.timeline({
-        defaults: { duration: 10 },
-        scrollTrigger: {
-          trigger: ".gx-section--seven",
-          pin: ".bg-mobile",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: true,
-        },
+      const container = document.getElementsByClassName('gx-section--seven')[0]
+      const title = container.querySelectorAll('h3')[0];
+      gsap.to(title, {
+        scrambleText: {
+          text: "Disrupting the Financial Services Industry",
+          duration: 1,
+          chars: "lowerCase",
+          revealDelay: 0,
+          tweenLength: false,
+        }
       })
       items.forEach((item, index) => {
         let target = { val: 0 };
-        // eslint-disable-next-line
         let number = item.querySelectorAll("h1 .number");
         let content = item.querySelectorAll("p");
         gsap.to(item, {
@@ -138,14 +137,14 @@ export default {
           opacity: 1,
           scale: 1,
           delay: index * 0.15,
-        });
-        gsap.to(content, {
+        })
+        .to(content, {
           duration: 0.3,
           opacity: 1,
           scale: 1,
           delay: index * 0.25,
-        });
-        gsap.to(target, {
+        })
+        .to(target, {
           val: this.cells[index].title,
           duration: 2,
           onUpdate: function () {

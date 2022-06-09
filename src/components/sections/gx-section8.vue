@@ -1,7 +1,7 @@
 <template>
-  <div class="gx-section gx-section--eight">
+  <div class="gx-section gx-section--eight" v-observe-visibility="visibilityChanged">
     <div class="container">
-      <h2>Our Thinking</h2>
+      <h2></h2>
       <VueSlickCarousel :arrows="false" :dots="false" v-bind="settings">
         <BlogPost
           :tagName="`tag name`"
@@ -40,6 +40,8 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import BlogPost from "../utilities/gx-slide.vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 export default {
   components: {
     VueSlickCarousel,
@@ -65,10 +67,32 @@ export default {
           },
         ],
       },
+      isVisible: false,
     };
   },
   mounted() {},
-  methods: {},
+  methods: {
+    visibilityChanged(isVisible) {
+      this.isVisible = isVisible;
+      if (this.isVisible) {
+        this.onEnter();
+      }
+    },
+    onEnter() {
+      gsap.registerPlugin(ScrollTrigger);
+      const container = document.getElementsByClassName('gx-section--eight')[0]
+      const title = container.querySelectorAll('h2')[0];
+      gsap.to(title, {
+        scrambleText: {
+          text: "Our Thinking",
+          duration: 1,
+          chars: "lowerCase",
+          revealDelay: 0,
+          tweenLength: false,
+        }
+      })
+    }
+  },
 };
 </script>
 
