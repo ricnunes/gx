@@ -186,19 +186,19 @@ export default {
       const secondVideo = ipads.querySelectorAll("#videoTwo");
       const thirdVideo = ipads.querySelectorAll("#videoThree");
 
-      if (window.innerWidth > 1024) {
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            pin: true,
-            start: "top top",
-            end: "+=2500",
-            scrub: true,
-            pinSpacing: true,
-            id: "ipadsAnimation",
-          },
-        });
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          pin: true,
+          start: "top top",
+          end: "+=3000",
+          scrub: true,
+          pinSpacing: true,
+          id: "ipadsAnimation",
+        },
+      });
 
+      if (window.innerWidth > 768) {
         tl.to(ipads, {
           transform: "translateX(30vw)",
           opacity: 1,
@@ -239,6 +239,14 @@ export default {
             opacity: 0,
             duration: 1,
             delay: 3,
+          })
+          .to(leftTitle1stParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(leftTitle2ndParagrapgh, {
+            duration: 0,
+            text: "",
           })
           .to(leftTitle, {
             opacity: 0,
@@ -293,6 +301,18 @@ export default {
             duration: 1,
             delay: 3,
           })
+          .to(rightSide1stParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(rightSide2ndParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(rightSide3rdParagrapgh, {
+            duration: 0,
+            text: "",
+          })
           .to(rightTitle, {
             opacity: 0,
             duration: 1,
@@ -304,6 +324,170 @@ export default {
 
           .to(ipads, {
             transform: "translateX(30vw)",
+            duration: 1,
+          })
+          .to(secondVideo, {
+            opacity: 0,
+            duration: 0.5,
+          })
+          .call(this.toggleVideo("videoTwo", false))
+          .to(thirdVideo, {
+            opacity: 1,
+            duration: 0.5,
+          })
+          .call(this.toggleVideo("videoThree", true))
+          .to(leftTitle, {
+            opacity: 1,
+            duration: 0.5,
+            scrambleText: {
+              text: "Predictive Analytics with Real Time Simulation",
+              chars: "lowerCase",
+              revealDelay: 0,
+              tweenLength: false,
+            },
+          })
+          .to(leftCopy, {
+            opacity: 1,
+            duration: 1,
+          })
+          .to(leftTitle1stParagrapgh, {
+            duration: 0.5,
+            text: " It is constantly fine tuning to find what is relevant in the moment, built for you.",
+          })
+          .to(leftTitle2ndParagrapgh, {
+            duration: 0.5,
+            text: "Constantly fine-tuned to find signals relevant in the current moment.",
+          })
+          .to(leftBtn, {
+            opacity: 1,
+            duration: 0.5,
+          });
+      } else {
+        tl.to(ipads, {
+          transform: "translateX(0)",
+          opacity: 1,
+          duration: 1,
+        })
+          .to(firstVideo, {
+            opacity: 1,
+            duration: 0.5,
+          })
+          .call(this.toggleVideo("videoOne", true))
+          .to(leftTitle, {
+            opacity: 1,
+            duration: 0.5,
+            scrambleText: {
+              text: "Early Warning Signals and Trend Detections",
+              chars: "lowerCase",
+              revealDelay: 0,
+              tweenLength: false,
+            },
+          })
+          .to(leftCopy, {
+            opacity: 1,
+            duration: 1,
+          })
+          .to(leftTitle1stParagrapgh, {
+            duration: 0.5,
+            text: "Analytics delivering signal not noise with sources that work in the future not just the past.",
+          })
+          .to(leftTitle2ndParagrapgh, {
+            duration: 0.5,
+            text: "Constantly fine-tuned to find signals relevant in the current moment.",
+          })
+          .to(leftBtn, {
+            opacity: 1,
+            duration: 0.5,
+          })
+          .to(leftCopy, {
+            opacity: 0,
+            duration: 1,
+            delay: 3,
+          })
+          .to(leftTitle1stParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(leftTitle2ndParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(leftTitle, {
+            opacity: 0,
+            duration: 1,
+          })
+
+          .to(ipads, {
+            transform: "translateX(0)",
+            duration: 1,
+          })
+          .to(firstVideo, {
+            opacity: 0,
+            duration: 0.5,
+          })
+          .call(this.toggleVideo("videoOne", false))
+          .to(secondVideo, {
+            opacity: 1,
+            duration: 0.5,
+          })
+          .call(this.toggleVideo("videoTwo", true))
+          .to(rightTitle, {
+            duration: 1,
+            scrambleText: {
+              text: "Automated Credit Modelling",
+              chars: "lowerCase",
+              revealDelay: 0,
+              tweenLength: false,
+            },
+          })
+          .to(rightCopy, {
+            opacity: 1,
+            duration: 1,
+          })
+          .to(rightSide1stParagrapgh, {
+            duration: 0.5,
+            text: "Tailored digitalization model to forecast client’s financials.",
+          })
+          .to(rightSide2ndParagrapgh, {
+            duration: 0.5,
+            text: "Peer benchmarking.",
+          })
+          .to(rightSide3rdParagrapgh, {
+            duration: 0.5,
+            text: "Making excel redundant.",
+          })
+          .to(rightBtn, {
+            opacity: 1,
+            duration: 0.5,
+          })
+          .to(rightCopy, {
+            opacity: 0,
+            duration: 1,
+            delay: 3,
+          })
+          .to(rightSide1stParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(rightSide2ndParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(rightSide3rdParagrapgh, {
+            duration: 0,
+            text: "",
+          })
+          .to(rightTitle, {
+            opacity: 0,
+            duration: 1,
+          })
+          .to(ipads, {
+            transform: "translateX(0)",
+            duration: 1,
+          })
+
+          .to(ipads, {
+            transform: "translateX(0)",
             duration: 1,
           })
           .to(secondVideo, {
@@ -371,6 +555,9 @@ export default {
     overflow: hidden;
     position: relative;
     display: flex;
+    @media screen and (max-width: 768px) {
+      height: 100vh;
+    }
     .left-text,
     .right-text {
       height: 100vh;
@@ -379,6 +566,18 @@ export default {
       display: flex;
       justify-content: center;
       flex-direction: column;
+      @media screen and (max-width: 768px) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 50px 0;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        
+      }
       a {
         opacity: 0;
       }
@@ -407,6 +606,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      top: -290px;
+    }
     img,
     video {
       position: absolute;
@@ -420,10 +622,17 @@ export default {
       box-shadow: 0px 0px 79px 29px rgba(0, 109, 216, 0.5);
       border-radius: 37px;
       width: 55%;
+      @media screen and (max-width: 768px) {
+        width: 80%;
+        border-radius: 10px;
+      }
     }
     video {
       width: 50%;
       opacity: 0;
+      @media screen and (max-width: 768px) {
+        width: 75%;
+      }
     }
   }
 }
