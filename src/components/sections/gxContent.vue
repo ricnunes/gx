@@ -2,8 +2,8 @@
   <div class="sections">
     <gxHome />
     <gxSectionTwo />
-    <gxIpads />
-    <!-- <gxIpadsTwo /> -->
+    <!-- <gxIpads /> -->
+    <gxIpadsTwo />
     <!-- <gxSectionThree />
     <gxSectionFour />
     <gxSectionFive /> -->
@@ -17,8 +17,8 @@
 <script>
 import gxHome from './gx-home.vue';
 import gxSectionTwo from './gx-section2.vue';
-import gxIpads from './gx-ipads.vue';
-// import gxIpadsTwo from './gx-ipads-2.vue';
+// import gxIpads from './gx-ipads.vue';
+import gxIpadsTwo from './gx-ipads-2.vue';
 // import gxSectionThree from './gx-section3.vue';
 // import gxSectionFour from './gx-section4.vue';
 // import gxSectionFive from './gx-section5.vue';
@@ -34,8 +34,8 @@ export default({
     // gxSectionThree,
     // gxSectionFour,
     // gxSectionFive,
-    gxIpads,
-    // gxIpadsTwo,
+    // gxIpads,
+    gxIpadsTwo,
     gxSectionSix,
     gxSectionSeven,
     gxSectionHeight,

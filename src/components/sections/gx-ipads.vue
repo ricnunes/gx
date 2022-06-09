@@ -50,7 +50,7 @@
         <div class="videoAnimation">
           <img src="../../assets/imgs/gx-tablet.svg" alt="" />
           <video autoplay playsinline muted="muted" ref="video">
-            <source src="../../assets/videos/section4.mp4" />
+            <source src="../../assets/videos/section1.mp4" />
           </video>
         </div>
         <div class="title show-xs">
@@ -79,7 +79,7 @@
         <div class="videoAnimation">
           <img src="../../assets/imgs/gx-tablet.svg" alt="" />
           <video autoplay playsinline muted="muted" ref="video">
-            <source src="../../assets/videos/section1.mp4" />
+            <source src="../../assets/videos/section4.mp4" />
           </video>
         </div>
         <div class="title show-xs">
