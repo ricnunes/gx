@@ -112,13 +112,29 @@
         <h5 id="gxScrambleFour">Let’s see what this thing can do.</h5>
         <button
           class="btn btn--primary btn--primary--darkB"
-          @click="playVideo()"
+          @click="isShowModal()"
           id="gxScrambleFive"
         >
           Watch the video
         </button>
       </div>
     </div>
+      <div class="modal-mask">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+            <div class="modal-header">
+              <span @click="isShowModal()">X</span>
+            </div>
+            <div class="modal-body">
+              <video ref="video" controls>
+                <source
+                  src="../../assets/videos/galytix_ai-driven.mp4"
+                />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -134,11 +150,22 @@ export default {
   data() {
     return {
       isVideoPlaying: true,
+      showModal: false,
     };
   },
   methods: {
     skipAnimation() {
       this.isVideoPlaying = !this.isVideoPlaying;
+    },
+    isShowModal() {
+      const modal = document.getElementsByClassName('modal-mask')[0];
+      if (!this.showModal) {
+        this.showModal = true
+        modal.classList.add('active');        
+      } else {
+        this.showModal = false
+        modal.classList.remove('active');
+      }
     },
     scrambleText() {
       let tl = gsap.timeline({ defaults: { duration: 1, ease: "none" } });
@@ -394,6 +421,64 @@ export default {
         margin-top: 5vh;
       }
       opacity: 0;
+    }
+  }
+}
+.modal-mask {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  transition: opacity .3s ease;
+  pointer-events: none;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+    transition: opacity .3s ease;
+    pointer-events: all;
+    .modal-container {
+      transform: scale(1);
+      transition: all .3s ease;
+    }
+  }
+  .modal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-container {
+    width: 100vw;
+    height: auto;
+    @include breakpoint($large) {
+      width: 80vw;
+      height: 70vh;
+      max-width: 1440px;
+    }
+    margin: 0px auto;
+    padding: 20px 30px;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: all .3s ease;
+    transform: scale(0);
+    .modal-header {
+      display: flex;
+      justify-content: flex-end;
+      span {
+        color: white;
+        display: block;
+        font-size: 3rem;
+        cursor: pointer;
+        font-family: $primary-font;
+      }
+    }
+    video {
+      max-width: 100%;
     }
   }
 }

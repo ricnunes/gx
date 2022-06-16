@@ -9,9 +9,11 @@
         <div id="leftCopy" class="copy">
           <h5></h5>
           <h5></h5>
-          <a class="btn btn--primary btn--primary--darkB" href="#"
-            >Find out how</a
+          <a href="#"
+            class="btn btn--primary btn--primary--darkB"
           >
+            Find out how
+          </a>
         </div>
       </div>
       <div class="right-text">
@@ -32,100 +34,12 @@
         <source src="../../assets/videos/section2.mp4" />
       </video>
       <video id="videoTwo" autoplay playsinline muted="muted" ref="video">
-        <source src="../../assets/videos/section1.mp4" />
+        <source src="../../assets/videos/section3.mp4" />
       </video>
       <video id="videoThree" autoplay playsinline muted="muted" ref="video">
         <source src="../../assets/videos/section4.mp4" />
       </video>
     </div>
-    <!-- <div class="right-to-center">
-      <div class="videoContainer">
-        <div class="content">
-          <div class="container">
-            <h3 class="hidden-xs hidden-md">
-              Early Warning Signals and Trend Detections
-            </h3>
-            <h5>
-              Analytics delivering signal not noise with sources that work in
-              the future not just the past.
-            </h5>
-            <h5>
-              Constantly fine-tuned to find signals relevant in the current
-              moment.
-            </h5>
-            <a class="btn btn--primary btn--primary--darkB" href="#"
-              >Find out how</a
-            >
-          </div>
-        </div>
-        <div class="videoAnimation">
-          <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-          <video autoplay playsinline muted="muted" ref="video">
-            <source src="../../assets/videos/section2.mp4" />
-          </video>
-        </div>
-        <div class="title show-xs">
-          <h3>Early Warning Signals and Trend Detections</h3>
-        </div>
-      </div>
-    </div>
-    <div class="left-to-center">
-      <div class="videoContainer">
-        <div class="content">
-          <div class="container">
-            <h3 class="hidden-xs hidden-md">Automated Credit Modelling</h3>
-            <h5>
-              Tailored digitalization model to forecast client’s financials.
-            </h5>
-            <h5>Peer benchmarking.</h5>
-            <h5>Making excel redundant.</h5>
-            <a class="btn btn--primary btn--primary--darkB" href="#"
-              >Find out how</a
-            >
-          </div>
-        </div>
-        <div class="videoAnimation">
-          <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-          <video autoplay playsinline muted="muted" ref="video">
-            <source src="../../assets/videos/section4.mp4" />
-          </video>
-        </div>
-        <div class="title show-xs">
-          <h3>Automated Credit Modelling</h3>
-        </div>
-      </div>
-    </div>
-    <div class="right-to-center">
-      <div class="videoContainer">
-        <div class="content">
-          <div class="container">
-            <h3 class="hidden-xs hidden-md">
-              Predictive Analytics with Real Time Simulation
-            </h3>
-            <h5>
-              It is constantly fine tuning to find what is relevant in the
-              moment, built for you.
-            </h5>
-            <h5>
-              Constantly fine-tuned to find signals relevant in the current
-              moment.
-            </h5>
-            <a class="btn btn--primary btn--primary--darkB" href="#"
-              >Find out how</a
-            >
-          </div>
-        </div>
-        <div class="videoAnimation">
-          <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-          <video autoplay playsinline muted="muted" ref="video">
-            <source src="../../assets/videos/section1.mp4" />
-          </video>
-        </div>
-        <div class="title show-xs">
-          <h3>Predictive Analytics with Real Time Simulation</h3>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -173,8 +87,8 @@ export default {
       const leftTitle1stParagrapgh = container.querySelectorAll("h5")[0];
       const leftTitle2ndParagrapgh = container.querySelectorAll("h5")[1];
 
-      const leftBtn = container.querySelectorAll("a")[0];
-      const rightBtn = container.querySelectorAll("a")[1];
+      const leftBtn = container.querySelectorAll(".btn")[0];
+      const rightBtn = container.querySelectorAll(".btn")[1];
 
       const rightSide1stParagrapgh = container.querySelectorAll("h5")[2];
       const rightSide2ndParagrapgh = container.querySelectorAll("h5")[3];
@@ -575,7 +489,6 @@ export default {
         justify-content: space-between;
         width: 100%;
         height: 100%;
-        
       }
       a {
         opacity: 0;

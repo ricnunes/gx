@@ -8,7 +8,9 @@
       </div>
       <gxCommerceBar class="show-xlg" />
       <div class="logo">
-        <img src="../../assets/imgs/gx-logo-full.svg" />
+        <a href="/">
+          <img src="../../assets/imgs/gx-logo-full.svg" />
+        </a>
       </div>
       <gxMenu class="show-xlg" />
       <div class="search show-xlg">

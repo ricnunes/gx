@@ -119,6 +119,17 @@ export default {
       gsap.registerPlugin(ScrollTrigger);
       const container = document.getElementsByClassName('gx-section--seven')[0]
       const title = container.querySelectorAll('h3')[0];
+      // eslint-disable-next-line
+      let tl = gsap.timeline({
+        defaults: { duration: 10 },
+        scrollTrigger: {
+          trigger: ".gx-section--seven",
+          pin: ".bg-mobile",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+        },
+      });
       gsap.to(title, {
         scrambleText: {
           text: "Disrupting the Financial Services Industry",
@@ -126,8 +137,8 @@ export default {
           chars: "lowerCase",
           revealDelay: 0,
           tweenLength: false,
-        }
-      })
+        },
+      });
       items.forEach((item, index) => {
         let target = { val: 0 };
         let number = item.querySelectorAll("h1 .number");
@@ -137,14 +148,14 @@ export default {
           opacity: 1,
           scale: 1,
           delay: index * 0.15,
-        })
-        .to(content, {
+        });
+        gsap.to(content, {
           duration: 0.3,
           opacity: 1,
           scale: 1,
           delay: index * 0.25,
-        })
-        .to(target, {
+        });
+        gsap.to(target, {
           val: this.cells[index].title,
           duration: 2,
           onUpdate: function () {
@@ -169,7 +180,11 @@ export default {
   overflow: hidden;
   position: relative;
   @include breakpoint($medium) {
-    background: radial-gradient(circle at 50% 50%, #006dd8 0.87%, rgba(0, 0, 0, 0) 42%);
+    background: radial-gradient(
+      circle at 50% 50%,
+      #006dd8 0.87%,
+      rgba(0, 0, 0, 0) 42%
+    );
   }
   @include iPad() {
     background: none;
