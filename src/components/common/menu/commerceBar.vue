@@ -16,18 +16,18 @@ export default {
       menus: [
         {
           id: 0,
-          link: "#banking",
-          name: "Banking",
+          link: "#",
+          name: "GX Platform",
         },
         {
           id: 1,
-          link: "#insurance",
-          name: "Insurance",
+          link: "#",
+          name: "News",
         },
         {
           id: 2,
-          link: "#gx-tech",
-          name: "GX Tech",
+          link: "#",
+          name: "Perspectives",
         }
       ]
     }

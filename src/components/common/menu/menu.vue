@@ -21,8 +21,8 @@ export default {
         },
         {
           id: 1,
-          link: "#news",
-          name: "News",
+          link: "#",
+          name: "Team",
         },
         {
           id: 2,

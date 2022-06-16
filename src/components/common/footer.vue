@@ -7,33 +7,25 @@
       <div class="flex-container">
         <div class="nav-container">
           <nav>
-            <h6>Quick Links</h6>
+            <h6>About Galytix</h6>
             <ul>
-              <li>Page name One</li>
-              <li>Page name Two</li>
-              <li>Page name Three</li>
-              <li>Page name Four</li>
-              <li>Page name Five</li>
-              <li>Page name Six</li>
+              <li><a href="#">Firm</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Browse Jobs</a></li>
             </ul>
           </nav>
           <nav>
-            <h6>Quick Links</h6>
+            <h6>Updates</h6>
             <ul>
-              <li>Page name One</li>
-              <li>Page name Two</li>
-              <li>Page name Three</li>
-              <li>Page name Four</li>
-              <li>Page name Five</li>
+              <li><a href="#">Perspectives</a></li>
+              <li><a href="#">News</a></li>
             </ul>
           </nav>
           <nav>
-            <h6>Quick Links</h6>
+            <h6>Product</h6>
             <ul>
-              <li>Page name One</li>
-              <li>Page name Two</li>
-              <li>Page name Three</li>
-              <li>Page name Four</li>
+              <li><a href="#">GX Platform</a></li>
             </ul>
           </nav>
         </div>
