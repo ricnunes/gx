@@ -84,7 +84,7 @@ footer {
     margin-bottom: 6.5rem;
   }
   h6,
-  li {
+  li a {
     color: white;
   }
   .nav-container {
