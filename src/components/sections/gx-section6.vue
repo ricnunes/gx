@@ -169,7 +169,8 @@ export default {
         height = this.$el.offsetHeight;
       }
       this.$refs.video.style.width = width ? `${width}px` : "auto";
-      this.$refs.video.style.height = height ? `${height}px` : "auto";
+      this.$refs.video.style.height = height ? `${height}px` : "100vh";
+      console.log('this.$refs.video.style.height ', this.$refs.video.style.height)
     },
 
     visibilityChanged(isVisible) {
@@ -192,18 +193,19 @@ export default {
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
-  .VideoBg {
+  &.VideoBg {
     position: relative;
     background-size: cover;
     background-position: center;
     overflow: hidden;
   }
-  .VideoBg video {
+  &.VideoBg video {
     position: absolute;
     top: 50%;
     left: 50%;
     visibility: hidden;
     transform: translate(-50%, -50%);
+    object-fit: cover;
   }
   .VideoBg__content {
     position: absolute;

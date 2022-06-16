@@ -223,7 +223,10 @@ export default {
     max-width: 1440px;
     margin: 0 auto;
     gap: 5px;
-    margin-top: 14.5rem;
+    margin-top: 4rem;
+    @include breakpoint($large) {
+      margin-top: 14.5rem;
+    }
     .cell {
       &:nth-child(1),
       &:nth-child(2),

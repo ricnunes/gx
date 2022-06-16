@@ -96,11 +96,22 @@ header {
 .logo {
   max-width: 270px;
   margin-right: 70px;
+  height: 14px;
   @include breakpoint($x-large) {
+    height: auto;
     margin-right: 0;
   }
   @include iPad() {
+    height: 14px;
     margin-right: 70px;
+  }
+  img {
+    height: 14px;
+    width: auto;
+    @include breakpoint($large) {
+      height: auto;
+      width: 100%;
+    }
   }
 }
 .search {

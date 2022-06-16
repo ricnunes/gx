@@ -154,6 +154,9 @@ export default {
       @include breakpoint($medium) {
         width: 70%;
       }
+      @media screen and (max-width: 768px) {
+        border-radius: 10px;
+      }
     }
     video {
       position: absolute;

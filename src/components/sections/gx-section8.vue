@@ -120,7 +120,10 @@ export default {
         padding: 0;
       }
       h2 {
-        margin-bottom: 18.7rem;
+        margin-bottom: 4rem;
+        @include breakpoint($large) {
+          margin-bottom: 18.7rem;
+        }
       }
       .slick-slider {
         margin-bottom: 20rem;

@@ -494,16 +494,22 @@ export default {
         opacity: 0;
       }
       h3 {
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
+        @include breakpoint($large) {
+          margin-bottom: 4rem;
+        }
       }
       h5 {
         margin-bottom: 3rem;
-        &:last-child {
+        + h5 {
           margin-bottom: 0;
         }
       }
       .btn {
-        margin-top: 5rem;
+        margin-top: 3rem;
+        @include breakpoint($large) {
+          margin-top: 4rem;
+        }
       }
     }
   }

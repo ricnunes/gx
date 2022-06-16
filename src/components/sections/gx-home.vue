@@ -123,7 +123,7 @@
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modal-header">
-              <span @click="isShowModal()">X</span>
+              <img @click="isShowModal()" src="../../assets/imgs/icons/close.svg" alt="Close">
             </div>
             <div class="modal-body">
               <video ref="video" controls>
@@ -258,7 +258,7 @@ export default {
   animation-delay: 2s;
   pointer-events: none;
   svg {
-    width: 50vh;
+    width: 80vw;
   }
   #eSGJivPWXx42 {
     animation: eSGJivPWXx42_c_o 2.5ms linear 1 normal forwards;
@@ -469,12 +469,9 @@ export default {
     .modal-header {
       display: flex;
       justify-content: flex-end;
-      span {
-        color: white;
+      img {
         display: block;
-        font-size: 3rem;
         cursor: pointer;
-        font-family: $primary-font;
       }
     }
     video {
