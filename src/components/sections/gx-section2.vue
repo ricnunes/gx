@@ -66,7 +66,6 @@ export default {
         .to(video1, {
           duration: video1Total * 3,
           currentTime: video1Total,
-          overwite: true,
           pause: true
         })
         .to(title, {
@@ -85,7 +84,6 @@ export default {
         .to(video2, {
           duration: video2Total * 3,
           currentTime: video2Total,
-          overwite: true,
           pause: true
         })
         .to(title, {

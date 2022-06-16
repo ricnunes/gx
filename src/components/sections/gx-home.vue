@@ -126,7 +126,7 @@
               <img @click="isShowModal()" src="../../assets/imgs/icons/close.svg" alt="Close">
             </div>
             <div class="modal-body">
-              <video ref="video" controls>
+              <video ref="video" controls poster="../../assets/imgs/poster_image.png">
                 <source
                   src="../../assets/videos/galytix_ai-driven.mp4"
                 />

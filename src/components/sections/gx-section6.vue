@@ -82,7 +82,7 @@ export default {
           trigger: ".gx-section--six",
           pin: true,
           start: "top top",
-          end: "bottom top",
+          end: "+=2500",
           scrub: true,
         },
       });
@@ -98,9 +98,8 @@ export default {
       .to(
         that.$refs.video,
         {
-          duration: 40,
+          duration: 10.5 * 3,
           currentTime: 10.5,
-          overwrite: true,
           pause: true
         }
       )
