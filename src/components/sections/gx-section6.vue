@@ -1,5 +1,5 @@
 <template>
-  <div class="gx-section gx-section--six VideoBg">
+  <div class="gx-section gx-section--six VideoBg hidden-xs hidden-md">
     <video playsinline :muted="muted" ref="video" class="animatedVideo">
       <source src="../../assets/videos/section6.mp4" />
     </video>
@@ -35,7 +35,7 @@ export default {
   mounted() {
     const section6 = document.querySelectorAll(".gx-section--six h3")[0];
     const that = this;
-
+    
     this.setContainerHeight();
     if (this.videoCanPlay()) {
       this.$refs.video.oncanplay = () => {

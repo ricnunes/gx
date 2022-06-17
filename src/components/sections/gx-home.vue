@@ -259,6 +259,9 @@ export default {
   pointer-events: none;
   svg {
     width: 80vw;
+    @include breakpoint($large) {
+      width: 50vw;
+    }
   }
   #eSGJivPWXx42 {
     animation: eSGJivPWXx42_c_o 2.5ms linear 1 normal forwards;
