@@ -71,7 +71,7 @@ export default {
         .to(title, {
           duration: 5,
           scrambleText: {
-            text: "Internal and external data sources connected.",
+            text: "Internal and external data sources connected",
             chars: "lowerCase",
             revealDelay: 0,
             tweenLength: false,

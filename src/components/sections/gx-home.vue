@@ -91,11 +91,18 @@
             />
           </svg>
         </div>
-        <VideoGb>
+        <video-background :loop="false" style="height: 100vh;" :src="require( `@/assets/videos/home.mp4`)"
+        :sources="[
+        {
+          src: require( `@/assets/videos/home-mobile.mp4`),
+          res: 768,
+          autoplay: true
+          } ]"
+          @ended="skipAnimation()">
           <h6 class="skip link link--darkB" @click="skipAnimation()">
             Skip Animation
           </h6>
-        </VideoGb>
+        </video-background>
       </div>
     </transition>
     <div class="gx-section gx-section--one">
@@ -139,13 +146,13 @@
 </template>
 
 <script>
-import VideoGb from "../utilities/videoBgHome.vue";
+import VideoBackground from 'vue-responsive-video-background-player'
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 export default {
   components: {
-    VideoGb,
+    VideoBackground,
   },
   data() {
     return {
@@ -172,7 +179,7 @@ export default {
       tl.to("#gxScrambleOne", {
         duration: 0.5,
         scrambleText: {
-          text: "Your ultimate data platform.",
+          text: "Your ultimate data platform",
           chars: "lowerCase",
           revealDelay: 0,
           tweenLength: false,
@@ -181,7 +188,7 @@ export default {
         .to("#gxScrambleTwo", {
           duration: 0.5,
           scrambleText: {
-            text: "AI-driven Smart Data Platform turning data into truth.",
+            text: "AI-driven Smart Data Platform turning data into truth",
             chars: "lowerCase",
             revealDelay: 0.5,
             tweenLength: false,
@@ -214,11 +221,6 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrambleTextPlugin);
     document.body.classList.add("scrollLocked");
-
-    let video = this.$children[0].$refs.video;
-    video.addEventListener("ended", () => {
-      this.isVideoPlaying = !this.isVideoPlaying;
-    });
   },
   watch: {
     isVideoPlaying() {

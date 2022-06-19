@@ -2,7 +2,7 @@
   <section class="slide-container">
     <div
       class="slide"
-      :style="`background-image: url(${publicPath}/static/assets/imgs/${source})`"
+      :style="`background-image: url(require(@/assets/imgs/${source}))`"
     >
       <div class="header">
         <h6 class="tag">{{ tagName }}</h6>
@@ -13,9 +13,6 @@
         <a :href="link" class="link link--darkB">Read More</a>
       </div>
     </div>
-    <!-- <div class="image">
-      <img :src="`${publicPath}/static/assets/imgs/${source}`" alt="">
-    </div> -->
   </section>
 </template>
 
@@ -45,7 +42,6 @@ export default {
   },
   data() {
     return {
-      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : "",
     };
   },
 };

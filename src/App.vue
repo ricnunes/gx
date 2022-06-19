@@ -21,12 +21,11 @@ export default {
   },
   data () {
     return {
-      isLoaded : false,
-      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : ""
+      isLoaded : false
     }
   },
   mounted () {
-    this.axios.get(this.publicPath + '/static/assets/videos/home.mp4').then(() => {
+    this.axios.get(require(`@/assets/videos/home.mp4`)).then(() => {
       document.getElementsByClassName('gx-loader')[0].classList.add('complete')
       setTimeout(() => {
         this.isLoaded = true
