@@ -1,46 +1,125 @@
 <template>
-  <div
-    class="gx-section gx-section--three"
-    v-observe-visibility="visibilityChanged"
-  >
-    <div class="container">
-      <div class="left-text">
-        <h3 id="leftTitle"></h3>
-        <div id="leftCopy" class="copy">
-          <h5></h5>
-          <h5></h5>
-          <a href="#"
-            class="btn btn--primary btn--primary--darkB"
-          >
-            Find out how
-          </a>
+    <div
+      class="gx-section gx-section--three"
+      v-observe-visibility="visibilityChanged"
+    >
+      <div class="container">
+        <div class="left-text">
+          <h3 id="leftTitle"></h3>
+          <div id="leftCopy" class="copy">
+            <h5></h5>
+            <h5></h5>
+            <button @click="isShowModalOne()" class="btn btn--primary btn--primary--darkB">
+              Find out how
+            </button>
+            <button @click="isShowModalThree()" class="btn btn--primary btn--primary--darkB">
+              Find out how
+            </button>
+          </div>
+        </div>
+        <div class="right-text">
+          <h3 id="rightTitle"></h3>
+          <div class="copy" id="rightCopy">
+            <h5></h5>
+            <h5></h5>
+            <h5></h5>
+            <button @click="isShowModalTwo()" class="btn btn--primary btn--primary--darkB">
+              Find out how
+            </button>
+          </div>
         </div>
       </div>
-      <div class="right-text">
-        <h3 id="rightTitle"></h3>
-        <div class="copy" id="rightCopy">
-          <h5></h5>
-          <h5></h5>
-          <h5></h5>
-          <a class="btn btn--primary btn--primary--darkB" href="#"
-            >Find out how</a
-          >
+      <div class="ipad">
+        <img src="../../assets/imgs/gx-tablet.svg" alt="" />
+        <video id="videoOne" autoplay playsinline muted="muted" ref="video">
+          <source src="../../assets/videos/section2.mp4" />
+        </video>
+        <video id="videoTwo" autoplay playsinline muted="muted" ref="video">
+          <source src="../../assets/videos/section3.mp4" />
+        </video>
+        <video id="videoThree" autoplay playsinline muted="muted" ref="video">
+          <source src="../../assets/videos/section4.mp4" />
+        </video>
+      </div>
+      <!-- First Modal -->
+    <div class="modal-mask-ipads">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <div class="modal-header">
+            <img
+              @click="isShowModalOne()"
+              src="../../assets/imgs/icons/close.svg"
+              alt="Close"
+            />
+          </div>
+          <div class="modal-body">
+            <div class="left-content">
+              <ul>
+                <li>Fully digitised fundamentals tracking</li>
+                <li>Expanding data foundation with confidence intervals</li>
+                <li>Data-led analytics to augment expert judgement</li>
+              </ul>
+            </div>
+            <div class="right-content">
+              <img src="../../assets/imgs/ipads-modal-1.png" alt="">
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="ipad">
-      <img src="../../assets/imgs/gx-tablet.svg" alt="" />
-      <video id="videoOne" autoplay playsinline muted="muted" ref="video">
-        <source src="../../assets/videos/section2.mp4" />
-      </video>
-      <video id="videoTwo" autoplay playsinline muted="muted" ref="video">
-        <source src="../../assets/videos/section3.mp4" />
-      </video>
-      <video id="videoThree" autoplay playsinline muted="muted" ref="video">
-        <source src="../../assets/videos/section4.mp4" />
-      </video>
+    <!-- Second Modal -->
+    <div class="modal-mask-ipads">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <div class="modal-header">
+            <img
+              @click="isShowModalTwo()"
+              src="../../assets/imgs/icons/close.svg"
+              alt="Close"
+            />
+          </div>
+          <div class="modal-body">
+            <div class="right-content">
+              <img src="../../assets/imgs/ipads-modal-2.png" alt="">
+            </div>
+            <div class="left-content">
+              <ul>
+                <li>GX Platform employs a highly flexible ontologic model which enables ML driven algorithms</li>
+                <li>The ontology is capable of modelling any type of user defined data model and operates as a data abstraction layer</li>
+                <li>Ontology has built in integrity frameworks to ensure data model maintained and operationalized at scale</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <!-- Third Modal -->
+    <div class="modal-mask-ipads">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <div class="modal-header">
+            <img
+              @click="isShowModalThree()"
+              src="../../assets/imgs/icons/close.svg"
+              alt="Close"
+            />
+          </div>
+          <div class="modal-body">
+            <div class="left-content">
+              <ul>
+                <li>Early signal detection</li>
+                <li>Signals prioritised on client’s individual needs</li>
+                <li>Signals reducing false positives derived from forward looking data metrics</li>
+              </ul>
+            </div>
+            <div class="right-content">
+              <img src="../../assets/imgs/ipads-modal-1.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -53,6 +132,9 @@ export default {
   data() {
     return {
       isVisible: false,
+      showModalOne: false,
+      showModalTwo: false,
+      showModalThree: false,
     };
   },
   methods: {
@@ -75,6 +157,36 @@ export default {
         }
       };
     },
+    isShowModalOne() {
+      const modal = document.getElementsByClassName("modal-mask-ipads")[0];
+      if (!this.showModalOne) {
+        this.showModalOne = true;
+        modal.classList.add("active");
+      } else {
+        this.showModalOne = false;
+        modal.classList.remove("active");
+      }
+    },
+    isShowModalTwo() {
+      const modal = document.getElementsByClassName("modal-mask-ipads")[1];
+      if (!this.showModalTwo) {
+        this.showModalTwo = true;
+        modal.classList.add("active");
+      } else {
+        this.showModalTwo = false;
+        modal.classList.remove("active");
+      }
+    },
+    isShowModalThree() {
+      const modal = document.getElementsByClassName("modal-mask-ipads")[2];
+      if (!this.showModalThree) {
+        this.showModalThree = true;
+        modal.classList.add("active");
+      } else {
+        this.showModalThree = false;
+        modal.classList.remove("active");
+      }
+    },
     animations() {
       gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrambleTextPlugin);
 
@@ -88,7 +200,8 @@ export default {
       const leftTitle2ndParagrapgh = container.querySelectorAll("h5")[1];
 
       const leftBtn = container.querySelectorAll(".btn")[0];
-      const rightBtn = container.querySelectorAll(".btn")[1];
+      const leftBtnTwo = container.querySelectorAll(".btn")[1];
+      const rightBtn = container.querySelectorAll(".btn")[2];
 
       const rightSide1stParagrapgh = container.querySelectorAll("h5")[2];
       const rightSide2ndParagrapgh = container.querySelectorAll("h5")[3];
@@ -164,6 +277,13 @@ export default {
           .to(leftTitle, {
             opacity: 0,
             duration: 1,
+          })
+          .to(leftBtn, {
+            opacity: 0,
+            duration: 0,
+            css: {
+              display: 'none'
+            }
           })
 
           .to(ipads, {
@@ -271,7 +391,7 @@ export default {
             duration: 0.5,
             text: "Constantly fine-tuned to find signals relevant in the current moment.",
           })
-          .to(leftBtn, {
+          .to(leftBtnTwo, {
             opacity: 1,
             duration: 0.5,
           });
@@ -328,6 +448,13 @@ export default {
           .to(leftTitle, {
             opacity: 0,
             duration: 1,
+          })
+          .to(leftBtn, {
+            opacity: 0,
+            duration: 0,
+            css: {
+              display: 'none'
+            }
           })
 
           .to(ipads, {
@@ -435,7 +562,7 @@ export default {
             duration: 0.5,
             text: "Constantly fine-tuned to find signals relevant in the current moment.",
           })
-          .to(leftBtn, {
+          .to(leftBtnTwo, {
             opacity: 1,
             duration: 0.5,
           });
@@ -490,7 +617,7 @@ export default {
         width: 100%;
         height: 100%;
       }
-      a {
+      a, button {
         opacity: 0;
       }
       h3 {
@@ -524,6 +651,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
     @media screen and (max-width: 768px) {
       top: -290px;
     }
@@ -554,5 +682,72 @@ export default {
     }
   }
 }
+.modal-mask-ipads {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+    &.active {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      pointer-events: all;
+      .modal-container {
+        transform: scale(1);
+        transition: all 0.3s ease;
+      }
+    }
+    .modal-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-container {
+      width: 100vw;
+      height: auto;
+      background: #D9D9D9;
+      @include breakpoint($large) {
+        width: 80vw;
+        height: 70vh;
+        max-width: 1440px;
+      }
+      margin: 0px auto;
+      padding: 20px 30px;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      transform: scale(0);
+      .modal-header {
+        display: flex;
+        justify-content: flex-end;
+        img {
+          display: block;
+          cursor: pointer;
+        }
+      }
+      .modal-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: black;
+        .left-content,
+        .right-content {
+          padding: 20px;
+        }
+      }
+      video {
+        max-width: 100%;
+      }
+    }
+  }
 </style>
  
