@@ -60,23 +60,9 @@ export default {
   background-size: cover;
   &:hover {
     .slide {
-      background-size: auto 120%;
+      background-size: 120% 120%;
       transition: all 0.5s ease;
     }
-  }
-}
-.image {
-  position: absolute;
-  top: 0;
-  left: 5px;
-  right: 5px;
-  bottom: 0;
-  z-index: 1;
-  overflow: hidden;
-  img {
-    object-fit: cover;
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
   }
 }
 .slide {
@@ -88,7 +74,7 @@ export default {
   justify-content: space-around;
   min-height: 560px;
   z-index: 2;
-  background-size: auto 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: transparent;

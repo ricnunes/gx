@@ -229,9 +229,11 @@ export default {
 
     homeVideo.addEventListener("canplaythrough", function () {
       setTimeout(function () {
-        introVideo.classList.add("hidden");
-        scrambleText();
-        allowScroll();
+        if (!introVideo.classList.contains("hidden")) {
+          introVideo.classList.add("hidden");
+          scrambleText();
+          allowScroll();
+        }
       }, 13000);
     });
 
@@ -277,11 +279,11 @@ export default {
   watch: {
     isVideoPlaying() {
       const introVideo = document.getElementsByClassName("intro-video")[0];
-      if (!introVideo.classList.contains('hidden')) {
+      if (!introVideo.classList.contains("hidden")) {
+        introVideo.classList.add("hidden");
         this.scrambleText();
         this.allowScroll();
       }
-      
     },
   },
 };

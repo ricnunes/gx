@@ -6,30 +6,30 @@
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
-          :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
-          :link="`#`"
-          :source="`social-image.jpg`"
+          :content="`Banks must act on their early warning systems or risk ROE downturn`"
+          :link="`https://www.galytix.com/perspectives/banks_must_act_on_their_early_warning_systems_or_risk_ROE_downturn`"
+          :source="`post-1.jpg`"
         />
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
-          :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
-          :link="`#`"
-          :source="`social-image.jpg`"
+          :content="`Corporate lenders must be on lookout for early signs of default`"
+          :link="`https://www.galytix.com/perspectives/corporate_lenders_must_be_on_lookout_for_early_signs_of_default`"
+          :source="`post-2.jpg`"
         />
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
-          :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
-          :link="`#`"
-          :source="`social-image.jpg`"
+          :content="`Bank risk managers aren't ready for wave of corporate credit defaults`"
+          :link="`https://www.galytix.com/perspectives/banks_early_warning_signals_credit_defaults`"
+          :source="`post-3.jpg`"
         />
         <BlogPost
           :tagName="`tag name`"
           :date="`4 June 2022`"
-          :content="`Lorem ipsum dolor sit amet, cu integre instructior mea, pertinacia scripserit duo ea. `"
-          :link="`#`"
-          :source="`social-image.jpg`"
+          :content="`Data Engineering - Enterprise-Scale, End-to-End Streams`"
+          :link="`https://www.galytix.com/perspectives/machine_intelligence_profitable_2`"
+          :source="`post-4.jpg`"
         />
       </VueSlickCarousel>
     </div>
