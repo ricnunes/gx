@@ -39,13 +39,14 @@ export default {
   flex-direction: row;
   overflow: hidden;
   position: relative;
+  min-height: auto;
   &-two {
     display: none;
     @media screen and (max-height: 1100px) and (min-width: 768px) {
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: start;
       text-align: center;
       color: white;
       .VideoBg__content {
