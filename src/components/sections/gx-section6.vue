@@ -171,14 +171,13 @@ export default {
   .brainDesktop,
   .brainMobile {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
     min-width: 100%;
     min-height: 100%;
     margin: auto;
     object-fit: cover;
+    transform: translate(-50%, -50%);
   }
   .brainDesktop {
     display: none;

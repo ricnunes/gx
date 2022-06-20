@@ -2,7 +2,7 @@
   <section class="slide-container">
     <div
       class="slide"
-      :style="`background-image: url(require(@/assets/imgs/${source}))`"
+      :style="`background-image: url(${publicPath}/static/assets/imgs/${source})`"
     >
       <div class="header">
         <h6 class="tag">{{ tagName }}</h6>
@@ -42,6 +42,7 @@ export default {
   },
   data() {
     return {
+      publicPath: process.env.NODE_ENV === "production" ? "/gx/" : "",
     };
   },
 };
