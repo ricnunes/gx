@@ -16,22 +16,22 @@ export default {
       menus: [
         {
           id: 0,
-          link: "#about",
+          link: "#https://www.galytix.com/about",
           name: "About",
         },
         {
           id: 1,
-          link: "#",
+          link: "https://www.galytix.com/team",
           name: "Team",
         },
         {
           id: 2,
-          link: "#",
+          link: "https://www.galytix.com/careers",
           name: "Careers"
         },
         {
           id: 3,
-          link: "#contact",
+          link: "#https://www.galytix.com/contactus",
           name: "Contact us",
         }
       ]

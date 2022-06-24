@@ -16,12 +16,12 @@ export default {
       menus: [
         {
           id: 0,
-          link: "#",
+          link: "https://www.galytix.com/gx-platform",
           name: "GX Platform",
         },
         {
           id: 1,
-          link: "#",
+          link: "https://www.galytix.com/news",
           name: "News",
         },
         {

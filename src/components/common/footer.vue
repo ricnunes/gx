@@ -9,23 +9,23 @@
           <nav>
             <h6>About Galytix</h6>
             <ul>
-              <li><a href="#">Firm</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Browse Jobs</a></li>
+              <li><a href="https://www.galytix.com/about">Firm</a></li>
+              <li><a href="https://www.galytix.com/team">Team</a></li>
+              <li><a href="https://www.galytix.com/careers">Careers</a></li>
+              <li><a href="https://www.galytix.com/careers/jobs">Browse Jobs</a></li>
             </ul>
           </nav>
           <nav>
             <h6>Updates</h6>
             <ul>
-              <li><a href="#">Perspectives</a></li>
-              <li><a href="#">News</a></li>
+              <li><a href="https://www.galytix.com/perspectives/">Perspectives</a></li>
+              <li><a href="https://www.galytix.com/news">News</a></li>
             </ul>
           </nav>
           <nav>
             <h6>Product</h6>
             <ul>
-              <li><a href="#">GX Platform</a></li>
+              <li><a href="https://www.galytix.com/gx-platform">GX Platform</a></li>
             </ul>
           </nav>
         </div>
