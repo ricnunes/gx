@@ -80,12 +80,25 @@ export default {
   background-color: transparent;
   transition: all 0.5s ease;
   border-radius: 5px;
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
   .header {
     display: flex;
     flex-direction: row;
     gap: 10px;
     justify-items: center;
     margin-bottom: 20rem;
+    z-index: 2;
+    position: relative;
     .tag {
       background: $blue;
       color: white;
@@ -101,6 +114,8 @@ export default {
   }
   .body {
     width: 75%;
+    position: relative;
+    z-index: 2;
     .link {
       margin-top: 3.5rem;
       font-size: 1.4rem;
