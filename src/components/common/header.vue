@@ -13,9 +13,6 @@
         </a>
       </div>
       <gxMenu class="show-xlg" />
-      <div class="search show-xlg">
-        <span></span>
-      </div>
     </div>
   </header>
 </template>
@@ -69,6 +66,9 @@ header {
   }
 }
 .hamburguer {
+  @include breakpoint($large) {
+    display: none;
+  }
   cursor: pointer;
   span {
     border-bottom: 1px solid white;

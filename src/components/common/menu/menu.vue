@@ -26,6 +26,11 @@ export default {
         },
         {
           id: 2,
+          link: "#",
+          name: "Careers"
+        },
+        {
+          id: 3,
           link: "#contact",
           name: "Contact us",
         }

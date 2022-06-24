@@ -9,12 +9,12 @@
           <div id="leftCopy" class="copy">
             <h5></h5>
             <h5></h5>
-            <button @click="isShowModalOne()" class="btn btn--primary btn--primary--darkB">
+            <!-- <button @click="isShowModalOne()" class="btn btn--primary btn--primary--darkB">
               Find out how
             </button>
             <button @click="isShowModalThree()" class="btn btn--primary btn--primary--darkB">
               Find out how
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="right-text">
@@ -23,9 +23,9 @@
             <h5></h5>
             <h5></h5>
             <h5></h5>
-            <button @click="isShowModalTwo()" class="btn btn--primary btn--primary--darkB">
+            <!-- <button @click="isShowModalTwo()" class="btn btn--primary btn--primary--darkB">
               Find out how
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -199,9 +199,9 @@ export default {
       const leftTitle1stParagrapgh = container.querySelectorAll("h5")[0];
       const leftTitle2ndParagrapgh = container.querySelectorAll("h5")[1];
 
-      const leftBtn = container.querySelectorAll(".btn")[0];
-      const leftBtnTwo = container.querySelectorAll(".btn")[1];
-      const rightBtn = container.querySelectorAll(".btn")[2];
+      // const leftBtn = container.querySelectorAll(".btn")[0];
+      // const leftBtnTwo = container.querySelectorAll(".btn")[1];
+      // const rightBtn = container.querySelectorAll(".btn")[2];
 
       const rightSide1stParagrapgh = container.querySelectorAll("h5")[2];
       const rightSide2ndParagrapgh = container.querySelectorAll("h5")[3];
@@ -257,10 +257,10 @@ export default {
             duration: 0.5,
             text: "Constantly fine-tuned to find signals relevant in the current moment.",
           })
-          .to(leftBtn, {
-            opacity: 1,
-            duration: 0.5,
-          })
+          // .to(leftBtn, {
+          //   opacity: 1,
+          //   duration: 0.5,
+          // })
           .to(leftCopy, {
             opacity: 0,
             duration: 1,
@@ -278,13 +278,13 @@ export default {
             opacity: 0,
             duration: 1,
           })
-          .to(leftBtn, {
-            opacity: 0,
-            duration: 0,
-            css: {
-              display: 'none'
-            }
-          })
+          // .to(leftBtn, {
+          //   opacity: 0,
+          //   duration: 0,
+          //   css: {
+          //     display: 'none'
+          //   }
+          // })
 
           .to(ipads, {
             transform: "translateX(-30vw)",
@@ -325,10 +325,10 @@ export default {
             duration: 0.5,
             text: "Making excel redundant.",
           })
-          .to(rightBtn, {
-            opacity: 1,
-            duration: 0.5,
-          })
+          // .to(rightBtn, {
+          //   opacity: 1,
+          //   duration: 0.5,
+          // })
           .to(rightCopy, {
             opacity: 0,
             duration: 1,
@@ -391,10 +391,10 @@ export default {
             duration: 0.5,
             text: "Constantly fine-tuned to find signals relevant in the current moment.",
           })
-          .to(leftBtnTwo, {
-            opacity: 1,
-            duration: 0.5,
-          });
+          // .to(leftBtnTwo, {
+          //   opacity: 1,
+          //   duration: 0.5,
+          // });
       } else {
         tl.to(ipads, {
           transform: "translateX(0)",
@@ -428,10 +428,10 @@ export default {
             duration: 0.5,
             text: "Constantly fine-tuned to find signals relevant in the current moment.",
           })
-          .to(leftBtn, {
-            opacity: 1,
-            duration: 0.5,
-          })
+          // .to(leftBtn, {
+          //   opacity: 1,
+          //   duration: 0.5,
+          // })
           .to(leftCopy, {
             opacity: 0,
             duration: 1,
@@ -449,13 +449,13 @@ export default {
             opacity: 0,
             duration: 1,
           })
-          .to(leftBtn, {
-            opacity: 0,
-            duration: 0,
-            css: {
-              display: 'none'
-            }
-          })
+          // .to(leftBtn, {
+          //   opacity: 0,
+          //   duration: 0,
+          //   css: {
+          //     display: 'none'
+          //   }
+          // })
 
           .to(ipads, {
             transform: "translateX(0)",
@@ -496,10 +496,10 @@ export default {
             duration: 0.5,
             text: "Making excel redundant.",
           })
-          .to(rightBtn, {
-            opacity: 1,
-            duration: 0.5,
-          })
+          // .to(rightBtn, {
+          //   opacity: 1,
+          //   duration: 0.5,
+          // })
           .to(rightCopy, {
             opacity: 0,
             duration: 1,
@@ -562,10 +562,10 @@ export default {
             duration: 0.5,
             text: "Constantly fine-tuned to find signals relevant in the current moment.",
           })
-          .to(leftBtnTwo, {
-            opacity: 1,
-            duration: 0.5,
-          });
+          // .to(leftBtnTwo, {
+          //   opacity: 1,
+          //   duration: 0.5,
+          // });
       }
     },
   },

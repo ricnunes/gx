@@ -46,7 +46,7 @@ export default {
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: start;
+      align-items: flex-start;
       text-align: center;
       color: white;
       .VideoBg__content {
