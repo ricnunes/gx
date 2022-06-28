@@ -89,7 +89,6 @@ export default {
       });
 
       if (window.innerWidth >= 768 && window.innerHeight >= 1100) {
-        console.log("window.innerWidth >= 768 && window.innerHeight >= 1100");
         tl2.to(brainVideoDesktop, {
           duration: 10.5 * 3,
           currentTime: 10.5,
@@ -145,9 +144,6 @@ export default {
           })
           .to({}, { duration: 5 });
       } else if (window.innerWidth >= 768 && window.innerHeight <= 1100) {
-        console.log(
-          "window.innerWidth >= 768 && window.innerHeight <= 1100, 2nd"
-        );
 
         tl2.to(brainVideoDesktop, {
           duration: 10.5 * 3,
@@ -204,7 +200,6 @@ export default {
           })
           .to({}, { duration: 5 });
       } else {
-        console.log("else");
         tl.fromTo(
           title,
           {

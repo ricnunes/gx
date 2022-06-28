@@ -5,6 +5,7 @@ import VueAxios from 'vue-axios'
 import VueObserveVisibility from 'vue-observe-visibility'
 import VueScrollmagic from 'vue-scrollmagic'
 import LottieVuePlayer from "@lottiefiles/vue-lottie-player"
+import { firestorePlugin } from 'vuefire';
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
@@ -19,6 +20,9 @@ Vue.use(VueScrollmagic, {
   refreshInterval: 100
 })
 Vue.use(LottieVuePlayer)
+Vue.use(firestorePlugin, {
+  wait: true
+})
 
 new Vue({
   render: h => h(App),

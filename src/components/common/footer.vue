@@ -31,9 +31,9 @@
         </div>
         <div class="subs">
           <h4>Sign up to our newsletter</h4>
-          <form action="">
+          <form @submit.prevent="updateFirebase">
             <div class="input-group">
-            <input type="email" placeholder="Your email address">
+            <input type="email" placeholder="Your email address" v-model="formData.email">
             <input type="submit">
             </div>
           </form>
@@ -49,8 +49,38 @@
 </template>
 
 <script>
+import { db } from '../../../firebase'
+
+const documentPath = 'contacts/galytix'
+
 export default {
   name: "gxFooter",
+  data() {
+    return {
+      firebaseData: null,
+      formData: {
+        email: ''
+      },
+      state: 'loading',
+      errorMessage: ''
+    }
+  },
+  firestore() {
+    return {
+      firebaseData: db.doc(documentPath)
+    }
+  },
+  methods: {
+    async updateFirebase() {
+      try {
+        await db.doc(documentPath).set(this.formData)
+        this.sate = 'synced'
+      } catch (error) {
+        this.errorMessage = JSON.stringify(error)
+        this.state = 'error'
+      }
+    }
+  },
 };
 </script>
 
