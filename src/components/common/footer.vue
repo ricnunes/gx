@@ -31,7 +31,7 @@
         </div>
         <div class="subs">
           <h4>Sign up to our newsletter</h4>
-          <form @submit.prevent="updateFirebase">
+          <form @submit.prevent="updateFirebase" ref="form" method="POST">
             <div class="input-group">
             <input type="email" placeholder="Your email address" v-model="formData.email">
             <input type="submit">
@@ -51,7 +51,7 @@
 <script>
 import { db } from '../../../firebase'
 
-const documentPath = 'contacts/galytix'
+const documentPath = 'contacts'
 
 export default {
   name: "gxFooter",
@@ -71,14 +71,14 @@ export default {
     }
   },
   methods: {
-    async updateFirebase() {
-      try {
-        await db.doc(documentPath).set(this.formData)
-        this.sate = 'synced'
-      } catch (error) {
-        this.errorMessage = JSON.stringify(error)
-        this.state = 'error'
-      }
+    updateFirebase: function () {
+      const messagesRef = this.$firebaseDatabase.collection('contacts')
+      messagesRef.add(
+        {
+          email: this.formData.email,
+          time: new Date()
+        }
+      )
     }
   },
 };

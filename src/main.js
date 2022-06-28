@@ -6,6 +6,7 @@ import VueObserveVisibility from 'vue-observe-visibility'
 import VueScrollmagic from 'vue-scrollmagic'
 import LottieVuePlayer from "@lottiefiles/vue-lottie-player"
 import { firestorePlugin } from 'vuefire';
+import firebase from 'firebase';
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
@@ -23,6 +24,8 @@ Vue.use(LottieVuePlayer)
 Vue.use(firestorePlugin, {
   wait: true
 })
+
+Vue.prototype.$firebaseDatabase = firebase.default.firestore()
 
 new Vue({
   render: h => h(App),
