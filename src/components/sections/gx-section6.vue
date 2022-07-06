@@ -54,6 +54,14 @@ export default {
         this.videoAnimation();
       }
     },
+    once (el, event, fn, opts) {
+      const onceFn = function () {
+        el.removeEventListener(event, onceFn)
+        fn.apply(this, arguments)
+      }
+      el.addEventListener(event, onceFn, opts)
+      return onceFn
+    },
     videoAnimation() {
       gsap.registerPlugin(ScrollTrigger);
 
@@ -200,6 +208,11 @@ export default {
           })
           .to({}, { duration: 5 });
       } else {
+        this.once(document.documentElement, "touchstart", function () {
+          brainVideoMobile.play()
+          brainVideoMobile.pause()
+        })
+
         tl.fromTo(
           title,
           {
