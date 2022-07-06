@@ -47,5 +47,6 @@ git checkout development
 1 - Download ffmpeg build
 2 - run the following command:
 ```
-ffmpeg -i original.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
+ffmpeg -i section6.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
+ffmpeg -i section6-mobile.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output-mobile.mp4
 ```
